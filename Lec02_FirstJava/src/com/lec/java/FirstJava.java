@@ -35,7 +35,38 @@ public class FirstJava {
         System.out.println("결과: " + 10 + 20);
         System.out.println("결과: " + (10 + 20));
 
-        // TODO
+        // 사칙연산
+        System.out.println("10 + 20 = " + (10 + 20));
+        System.out.println("10 - 20 = " + (10 - 20));
+        System.out.println("10 * 20 = " + (10 * 20));
+        System.out.println("10 / 20 = " + (10 / 20)); // 정수 와 정수 연산 결과는 정수 (즉 소수점이하 절삭)
+
+        System.out.println("10 / 20 = " + ((double)10 / 20));  // 실수 와의 연산 결과는 실수
+
+        // print()  <- 줄바꿈 안함
+        System.out.print("안녕");
+        System.out.print("하세요");
+
+        System.out.println();
+
+        // 이스케이프 문자 (escape character)
+        // " ~ " 문자열 안에서 특수 문자 출력
+
+
+        // She says "Hi"  <-- 출력하려면?
+//        System.out.println("She says "Hi"");  // 에러다!
+        System.out.println("She says \"Hi\"");
+
+        // 입문시 기억할만한 이스케이프 문자
+        // \"  : 쌍따옴표
+        // \n  : 줄바꿈
+        // \t  : 탭문자
+        // \\  : 문자열 안에서 역슬래시 출력
+
+        System.out.println("123\t456\t7890");
+        System.out.println("12\t34\t56\t78\t90");
+        System.out.println("12345\t678\n90");
+
 
 
         System.out.println("프로그램 종료");
