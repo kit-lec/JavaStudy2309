@@ -46,7 +46,54 @@ public class Variable05Main {
         System.out.println('z' - 'a' + 1);
         System.out.println('힣' - '가' + 1);
 
+        // boolean (논리형) : 참(true), 거짓(false)
+        boolean b1 = true;
+        boolean b2 = false;
+        System.out.println("b1: " + b1);
+        System.out.println("b2: " + b2);
+        System.out.println(10 < 20);
+        System.out.println(10 > 20);
 
+        // String 타입
+        String name = "Hong";
+        String nick = "활빈당";
+        System.out.println("이름은: " + name + "\n별명은: " + nick);
+
+        // ---------------------------------------------
+        // TextBlock : Java15 이상
+        //   - TextBlock 안에서는 굳이 " 을 escaping 하지 않아도 된다.
+        System.out.println("\nTextBlock (Java15이상)");
+
+/* 만약 아래 내용을 String 으로 만드려면?
+<html>
+
+	<body>
+		<span>example text</span>
+	</body>
+</html>
+ */
+        String txt1 = "<html>\n" +
+                "\n" +
+                "\t<body>\n" +
+                "\t\t<span>example text</span>\n" +
+                "\t</body>\n" +
+                "</html>";
+
+        System.out.println(txt1);
+
+        String txt2 = """
+                Example Text""";
+        System.out.println(txt2);
+
+        String txt3 = """
+                <html>
+                    "우와왕"            
+                	<body>
+                		<span>example text</span>
+                	</body>
+                </html>
+                """;
+        System.out.println(txt3);
     }
 }
 
