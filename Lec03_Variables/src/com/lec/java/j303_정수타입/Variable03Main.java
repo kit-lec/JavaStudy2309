@@ -41,6 +41,8 @@ public class Variable03Main {
 
         //double aaa;
 
+        //  코드 추가했어요~~~ 뿌~~~
+
     }
 }
 
