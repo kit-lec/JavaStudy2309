@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaStudy.iml" filepath="$PROJECT_DIR$/JavaStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jungol_기초다지기/Jungol_기초다지기.iml" filepath="$PROJECT_DIR$/Jungol_기초다지기/Jungol_기초다지기.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec01_Hello/Lec01_Hello.iml" filepath="$PROJECT_DIR$/Lec01_Hello/Lec01_Hello.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec02_FirstJava/Lec02_FirstJava.iml" filepath="$PROJECT_DIR$/Lec02_FirstJava/Lec02_FirstJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec03_Variables/Lec03_Variables.iml" filepath="$PROJECT_DIR$/Lec03_Variables/Lec03_Variables.iml" />
