@@ -36,11 +36,18 @@ public class Operator01Main {
 		System.out.println("\n====================");
 		System.out.println("[1] 대입 연산자 : = (assignment operator)");
 		// 등호(=) 오른쪽의 값을 왼쪽에 대입(저장)
-		// TODO
+		int num = 123;
 		
 		// 대입연산자도 연산자다! 따라서
 		// 연산의 결과값이 있다.  대입된 값을 결과값으로 리턴함
-		// TODO		
+		int num5;
+		int num6;
+		System.out.println("num5: " + (num5 = 100));
+
+		num6 = num5 = 300;
+		System.out.println("num5: " + num5);
+		System.out.println("num6: " + num6);
+
 		
 		System.out.println("\n====================");
 		System.out.println("[2] 산술 연산자: +, -, *, /, % (arithmetic operator)");
@@ -55,16 +62,36 @@ public class Operator01Main {
 		// 나머지 연산자(%)
 		// 정수 % 정수 = 정수로 값을 돌려 줌.
 		// 실수 % 정수, 정수 % 실수, 실수 % 실수 = 몫을 제외한 실수형 나머지를 돌려줌.
-		// TODO
+		int num1 = 7, num2 = 3;
+		int result;
+
+		result = num1 % num2;
+		System.out.println("result: " + result);
+
+		double result2 = 12.1 % 3;
+		System.out.println("result2: " + result2);
 		
 		
 		// 두 변수 값 바꾸는 방법
-		// TODO
-		
-		
+		System.out.println();
+		int num3 = 100;
+		int num4 = 200;
+		int temp;  // 임시 변수 필요
+
+		System.out.println("바꾸기전 num3=" + num3 + " num4="+num4);
+
+		temp = num3;
+		num3 = num4;
+		num4 = temp;
+
+		System.out.println("바꾼후 num3=" + num3 + " num4="+num4);
 
 
-		
+
+
+
+
+
 		System.out.println("\n프로그램 종료");
 	} // end main()
 

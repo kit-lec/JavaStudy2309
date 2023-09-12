@@ -13,15 +13,46 @@ public class Operator04Main {
 	public static void main(String[] args) {
 		System.out.println("연산자 4 - 증감 연산자(++, --) Increment / Decrement Operator");
 		
-		// TODO
+		int num1 = 100;
+		System.out.println("num1 = " + num1);
+
+		++num1;
+		// num1 = num1 + 1; 와 동일한 결과
+		// num1 += 1; 와 동일한 결과
+		System.out.println("num1 = " + num1);
+
+		num1++;
+		System.out.println("num1 = " + num1);
+
 		
 		
 		System.out.println("\n\n======================");
 		System.out.println("증감연산자: prefix(접두사), postfix(접미사)");
-		
-		// TODO
-		
-		
+		{
+			int num3 = 100;
+			int num4 = ++num3;
+
+			System.out.println("num3 = " + num3);
+			System.out.println("num4 = " + num4);
+		}
+		{
+			int num3 = 100;
+			int num4 = num3++;
+
+			System.out.println("num3 = " + num3);
+			System.out.println("num4 = " + num4);
+		}
+
+		// 실무에서는 '수식' 안에서 '증감연산자' 사용하지 마세요!
+		{
+			int num3 = 100;
+			int num4 = num3;
+			num3++;
+
+			System.out.println("num3 = " + num3);
+			System.out.println("num4 = " + num4);
+		}
+
 		System.out.println("\n프로그램 종료");
 	} // end main
 

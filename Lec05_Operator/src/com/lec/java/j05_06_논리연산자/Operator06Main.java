@@ -15,8 +15,19 @@ public class Operator06Main {
 	public static void main(String[] args) {
 		System.out.println("연산자 6 - 논리 연산자: &&, ||, !, ^");
 
-		// TODO
-		
+		int num1 = 10;
+
+		System.out.println(num1 > 0 && num1 < 100);
+		System.out.println(num1 > 0 && num1 < 10);
+		System.out.println(num1 > 0 || num1 < 10);
+		System.out.println(num1 < 0 || num1 < 10);
+
+		System.out.println(num1 > 0);
+		System.out.println(!(num1 > 0));
+
+		System.out.println(num1 < 0 ^ num1 > 100);
+		System.out.println(num1 < 0 ^ num1 < 100);
+
 		System.out.println("\n 프로그램 종료");
 	} // end main ()
 

@@ -43,6 +43,14 @@ public class Variable03Main {
 
         //  코드 추가했어요~~~ 뿌~~~
 
+        // 정수타입은 값의 경계선
+        // overflow, underflow 발생
+        byte num15 = Byte.MAX_VALUE;  // 127
+        byte num16 = (byte)(num15 + 1);
+        System.out.println("num15 = " + num15);
+        System.out.println("num16 = " + num16);
+
+
     }
 }
 

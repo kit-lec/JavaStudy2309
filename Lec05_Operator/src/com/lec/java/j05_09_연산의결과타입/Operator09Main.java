@@ -20,10 +20,48 @@ public class Operator09Main {
 	public static void main(String[] args) {
 		System.out.println("산술연산의 결과 타입");
 
-		// TODO
-		
-		
+		int n1 = 10, n2 = 20;
+		int n3 = n1 + n2;      // int + int 연산의 결과는 int 니까.
+		System.out.println("n3: " + n3);
+
+		byte b1 = 10, b2 = 20;
+		//byte b3 = b1 + b2;   // byte + byte => int
+		byte b3 = (byte)(b1 + b2);
+
+		long l1 = 10L;
+		// int n4 = n1 + l1;   // int + long -> long
+
+		short s1 = 100;
+		//short s2 = s1 + b1;   // short + byte -> int
+
+		float f1 = 1.0f, f2 = 2.0f;
+		float f3 = f1 + f2;   // float + float -> float
+		f3 = f1 + s1;   // float + short -> float
+
+		//f3 = f1 + 1.0;  // float + double -> double
+
+		//-------------------------
+		long l2 = 27_000_000_000L;  // 3000 x 3000 x 3000
+		System.out.println("l2: " + l2);
+
+		l2 = 3000 * 3000 * 3000;
+		System.out.println("l2: " + l2);
+
+		l2 = 3000L * 3000 * 3000;
+		System.out.println("l2: " + l2);
+
+
 		System.out.println("\n 프로그램 종료");
 	} // end main ()
 
 } // end class
+
+
+
+
+
+
+
+
+
+
