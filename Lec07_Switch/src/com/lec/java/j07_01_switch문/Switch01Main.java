@@ -22,7 +22,27 @@ public class Switch01Main {
 	public static void main(String[] args) {
 		System.out.println("switch 문");
 
-		// TODO
+		int num = 1;
+
+		switch (num) {
+			case 1:    // num값이 1인 경우 수행
+				System.out.println("하나");
+				System.out.println("ONE");
+				break;  // break 만나면 switch 종료
+
+			case 2:
+				System.out.println("둘");
+				System.out.println("TWO");
+				break;
+
+			case 3:
+				System.out.println("셋");
+				System.out.println("THREE");
+				break;
+
+			default:
+				System.out.println("몰라요");
+		}
 		
 		System.out.println();
 		// 모든 switch 조건문 if - else if - else로 바꿀 수 있다.

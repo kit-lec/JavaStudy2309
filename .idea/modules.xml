@@ -9,6 +9,11 @@
       <module fileurl="file://$PROJECT_DIR$/Lec03_Variables/Lec03_Variables.iml" filepath="$PROJECT_DIR$/Lec03_Variables/Lec03_Variables.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec04_Input/Lec04_Input.iml" filepath="$PROJECT_DIR$/Lec04_Input/Lec04_Input.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec05_Operator/Lec05_Operator.iml" filepath="$PROJECT_DIR$/Lec05_Operator/Lec05_Operator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec06_If/Lec06_If.iml" filepath="$PROJECT_DIR$/Lec06_If/Lec06_If.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec07_Switch/Lec07_Switch.iml" filepath="$PROJECT_DIR$/Lec07_Switch/Lec07_Switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec08_For/Lec08_For.iml" filepath="$PROJECT_DIR$/Lec08_For/Lec08_For.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec09_While/Lec09_While.iml" filepath="$PROJECT_DIR$/Lec09_While/Lec09_While.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec10_Loop/Lec10_Loop.iml" filepath="$PROJECT_DIR$/Lec10_Loop/Lec10_Loop.iml" />
     </modules>
   </component>
 </project>

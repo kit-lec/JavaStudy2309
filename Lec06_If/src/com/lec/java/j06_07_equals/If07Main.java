@@ -11,15 +11,44 @@ public class If07Main {
 
 	public static void main(String[] args) {
 		System.out.println("String 비교, char 비교");
-	
-		// TODO
+
+		{
+			String name1 = "john";
+			String name2 = "john";
+
+			System.out.println(name1 + " " + name2);
+			System.out.println(name1 == name2);
+		}
 		
 		// 문자열 비교는 절대로 == 를 사용하지 말자
-		// TODO
+		{
+			String name1 = "john";
+			String name2 = "jo";
+			name2 += "hn";
+
+			System.out.println(name1 + " " + name2);
+			System.out.println(name1 == name2);
+		}
 		
 		
 		// 문자열 비교는 equals() 사용!
-		// TODO
+		{
+			String name1 = "john";
+			String name2 = "jo";
+			name2 += "hn";
+
+			System.out.println(name1 + " " + name2);
+			System.out.println(name1.equals(name2));
+		}
+
+		{
+			String name1 = "John";
+			String name2 = "jo";
+			name2 += "hn";
+
+			System.out.println(name1 + " " + name2);
+			System.out.println(name1.equalsIgnoreCase(name2));
+		}
 		
 
 		System.out.println();

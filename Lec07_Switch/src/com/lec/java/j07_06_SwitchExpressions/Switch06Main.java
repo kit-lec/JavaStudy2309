@@ -4,12 +4,14 @@ import com.lec.java.j07_05_EnhancedSwitch.Day;
 
 /**
  * Switch Expressions
- *
+ * <p>
  * ※참고
- *   식(expression) 과 문(statement) 의 차이!
- *   '식'은 결괏값(리턴값)이 있다
- *   '문'은 컴파일러가 '실행'하는 모든 구문들.  (여기에는 expression 도 포함된다)
+ * 식(expression) 과 문(statement) 의 차이!
+ * '식'은 결괏값(리턴값)이 있다
+ * '문'은 컴파일러가 '실행'하는 모든 구문들.  (여기에는 expression 도 포함된다)
  */
+
+// jungol 연습할때 .. 이건 쓰지 마세요. 혹시 된다면 알려주세요.
 
 public class Switch06Main {
     public static void main(String[] args) {
@@ -45,9 +47,12 @@ public class Switch06Main {
 
         // switch expressions(식) 사용
         {
-            int numLetters = 0;
-
-            // TODO
+            int numLetters = switch (day) {
+                case MONDAY, FRIDAY, SUNDAY -> 6;
+                case TUESDAY -> 7;
+                case THURSDAY, SATURDAY -> 8;
+                case WEDNESDAY -> 9;
+            };
 
             System.out.println("numLetters: " + numLetters);
         }
@@ -58,9 +63,15 @@ public class Switch06Main {
         // switch 연산식에서 길이를 return하기 전에 특정 메시지를 출력하고 싶으면 yield 사용
         {
             day = Day.MONDAY;
-            int numLetters = 0;
-
-            // TODO
+            int numLetters = switch (day) {
+                case MONDAY, FRIDAY, SUNDAY -> {
+                    System.out.print("Six ");
+                    yield 6;
+                }
+                case TUESDAY -> 7;
+                case THURSDAY, SATURDAY -> 8;
+                case WEDNESDAY -> 9;
+            };
 
             System.out.println("numLetters: " + numLetters);
         }
@@ -70,7 +81,17 @@ public class Switch06Main {
         // switch 식에선 enum타입(열거타입)을 사용하는 이유
         {
             String s = "MONDAY";           // string 의 경우
-            int numLetters = 0;
+            // string 의 경우. 모든 경우 값을 리턴하기 위해선 default 꼭 필요
+            // 아래 Default 를 제거하면 에러다 'switch' expression does not cover all possible input values
+
+            int numLetters = switch (s) {
+                case "MONDAY", "FRIDAY", "SUNDAY" -> 6;
+                case "TUESDAY" -> 7;
+                case "THURSDAY", "SATURDAY" -> 8;
+                case "WEDNESDAY" -> 9;
+                default -> -1;
+
+            };
 
             // TODO
 

@@ -10,7 +10,15 @@ public class If04Main {
 	public static void main(String[] args) {
 		System.out.println("if 문과 삼항 연산자");
 		
-		// TODO
+		int num1 = 100, num2 = 123;
+		int big;  // 누가 더큰가?
+
+		big = (num1 > num2) ? num1 : num2;
+		System.out.println("더 큰수 : " + big);
+
+		int diff; // 차이값
+		diff = (num1 > num2) ? (num1 - num2) : (num2 - num1) ;
+		System.out.println("두 수의 차: " + diff);
 
 		System.out.println("\n프로그램 종료");
 	} // end main()
