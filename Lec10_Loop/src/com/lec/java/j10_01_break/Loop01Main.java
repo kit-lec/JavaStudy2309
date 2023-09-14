@@ -9,7 +9,15 @@ public class Loop01Main {
 	public static void main(String[] args) {
 		System.out.println("Break");
 		
-		// TODO
+		int num = 1;
+		while(num <= 10){
+			num++;
+
+			if(num == 3) break;
+
+			System.out.println(num);
+
+		}
 		
 		
 		
@@ -17,13 +25,30 @@ public class Loop01Main {
 		// 1 ~ 100 사이에서 2와 7의 최소공배수를 출력
 		// 최소공배수: 공배수 중에서 가장 작은 수
 
-		// TODO
+		num = 1;
+		while(num <= 100){
+
+			if(num % 2 == 0 && num % 7 == 0){
+				System.out.println(num);
+				break;
+			}
+
+			num++;
+		}
+
 		
 
 		System.out.println();
 		System.out.println("무한 루프와 break;");
 
-		// TODO
+		num = 1;
+
+		while(true){  // 무한루프
+			System.out.println(num);
+			num++;
+
+			if(num == 5) break;
+		}
 		
 		
 		

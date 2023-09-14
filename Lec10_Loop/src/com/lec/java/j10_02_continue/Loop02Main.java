@@ -11,8 +11,13 @@ public class Loop02Main {
 
 	public static void main(String[] args) {
 		System.out.println("continue;");
-		
-		// TODO
+
+		int num = 1;
+		while(num <= 10){
+			num++;
+
+			System.out.println(num);
+		}
 		
 		
 		System.out.println();
