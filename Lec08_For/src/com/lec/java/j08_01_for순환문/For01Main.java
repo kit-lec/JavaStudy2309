@@ -40,8 +40,42 @@ public class For01Main {
 
 	public static void main(String[] args) {
 		System.out.println("for 반복문");
-		
-		
+
+		System.out.println("Hello, Java 1");
+		System.out.println("Hello, Java 2");
+		System.out.println("Hello, Java 3");
+
+		System.out.println();
+
+		for(int count = 1; count <= 3; count++){
+			System.out.println("Hello, Java " + count);
+		}
+
+		System.out.println();
+
+		for(int count = 10; count > 0; count--){
+			System.out.print(count + ", ");
+		}
+		System.out.println();
+
+		// 초기식과 증감식에 식을 여러개 사용 가능.
+		int i, j;
+		for(i = 0, j = 10; i < j; i++, j -= 2){
+			System.out.println("i:" + i + " j:" + j);
+		}
+
+		System.out.println("for 종료후 i:" + i + " j:" + j);
+
+
+		/*
+				i       j
+				0      10
+				1      8
+				2      6
+				3      4
+
+		종료후  4      2   (x)
+		 */
 		
 	} // end main()
 

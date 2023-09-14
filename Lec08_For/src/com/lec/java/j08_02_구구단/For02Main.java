@@ -16,6 +16,12 @@ public class For02Main {
 //		2 x 8 = 16
 //		2 x 9 = 18
 
+		int dan = 5;
+
+		for(int i = 1; i <= 9; i++){
+			System.out.println(dan + " x " + i + " = " + (dan * i));
+		}
+
 		System.out.println();
 		System.out.println("구구단 2단");
 
