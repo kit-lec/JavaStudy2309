@@ -11,7 +11,7 @@ package com.lec.java.j12_01_메소드정의;
 	 	메소드는 main 메소드 바깥에서!!, class 안에서 정의!!
 
 	 메소드 정의구문:
-		수식어        리턴타입              메소드이름(매개변수, ...) { ... }
+		수식어      리턴타입    메소드이름  (매개변수, ...) { ... 메소드 본체(body) }
 	    modifier return_type  method_name(parameter, ...) { ... }
 	
 		수식어(modifier) : public, static, private, ... (생략 가능)
@@ -33,13 +33,44 @@ public class Method01Main {
 	
 	public static void main(String[] args) {
 		System.out.println("메소드(함수) Method(Function)");
-		
+
+		System.out.println("안녕하세요.");
+		System.out.println("제 이름은 이문권 입니다.");
+
+		System.out.println("안녕하세요.");
+		System.out.println("제 이름은 박주현 입니다.");
+
+		System.out.println("안녕하세요.");
+		System.out.println("제 이름은 이지훈 입니다.");
+
+		System.out.println();
+
+		// 메소드 호출
+		sayAnthem();
+
+		sayHello("장윤근");
+		sayHello("이정식");
+
 		// TODO
-		
+
 		System.out.println("\n프로그램 종료");
 	} // end main()
 	
-	// TODO
+	// 메소드 정의
+	public static void sayAnthem(){
+		System.out.println("""
+    			동해물과 백두산이
+    			마르고 닳도록
+    			하느님이 보우하사
+    			우리나라 만세""");
+	}
+
+	//   메소드이름: sayHello
+	//   매개변수: name (매개변수가 필요없는 경우에는 생략 가능)
+	public static void sayHello(String name){
+		System.out.println("안녕하세요.");
+		System.out.println("제 이름은 " + name + " 입니다.");
+	}
 
 } // end class
 
