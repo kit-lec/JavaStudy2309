@@ -1,5 +1,7 @@
 package com.lec.java.j11_11_Arrays클래스;
 
+import java.util.Arrays;
+
 /* java.util.Arrays 클래스
      배열을 다루는 유용한 메소드들 제공
 		Arrays.toString() : 문자열 형태로 리턴
@@ -14,8 +16,13 @@ public class Array11Main {
 	public static void main(String[] args) {
 		System.out.println("java.util.Arrays 클래스");
 	
-		// TODO
-		
+		int[] arr = {10, 20, 30, 40, 50};
+
+		// Arrays.toString() : 문자열 형태로 리턴
+		System.out.println("Arrays.toString()");
+		System.out.println(Arrays.toString(arr));
+
+
 		System.out.println("\n프로그램 종료");
 	} // end main
 

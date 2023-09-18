@@ -19,11 +19,32 @@ public class Loop03Main {
 		// 9 x 9 = 81
 
 		// 구구단 출력 : 중첩 for 사용
-		// TODO
+		for(int dan = 2; dan < 10; dan++){  // 2단 ~ 9단
+
+			System.out.println(dan + "단");
+			for(int mul = 1; mul < 10; mul++) { // x1 ~ x9
+
+				System.out.println(dan + " x " + mul + " = " + (dan * mul) );
+
+			}
+			System.out.println();
+		}
 		
 		System.out.println();
+
 		// 구구단 출력 : 중첩 while 문 사용
-		// TODO
+		int dan = 2;
+		while (dan < 10) {
+			System.out.println("구구단 " + dan + "단");
+			int mul = 1;
+			while (mul < 10) {
+				System.out.println(dan + " x " + mul + " = " + (dan * mul));
+				mul++;
+			} // end while (mul)
+			System.out.println();
+
+			dan++;
+		} // end while (dan)
 		
 		
 		

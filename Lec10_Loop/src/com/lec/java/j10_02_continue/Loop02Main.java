@@ -16,6 +16,9 @@ public class Loop02Main {
 		while(num <= 10){
 			num++;
 
+			if(num % 2 == 0)
+				continue;
+
 			System.out.println(num);
 		}
 		

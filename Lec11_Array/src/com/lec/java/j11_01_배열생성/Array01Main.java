@@ -28,8 +28,40 @@ public class Array01Main {
 
 	public static void main(String[] args) {
 		System.out.println("배열(Array)");
-		
-		
+
+		// 배열이 필요한 이유.
+		// 동일타입 데이터(들)을 위해 매번 새로운 변수생성 불가.
+		int korean1 = 99;
+		int korean2 = 88;
+		int korean3 = 77;
+
+		// 배열선언
+		int[] korean = new int[3];
+		// int 타입의 배열을 선언,
+		// 3개의 int 타입을 저장할 수 있도록 초기화
+
+		korean[0] = 90; // 첫번째 배열원소에는 int값 90 을 대입
+		korean[1] = 80;
+		korean[2] = 70;
+		//korean[3] = 60;
+
+		System.out.println("국어0: " + korean[0]);
+		System.out.println("국어1: " + korean[1]);
+		System.out.println("국어2: " + korean[2]);
+
+		// korean 의 타입은? => int[] 타입
+		// korean[0] 의 타입은? => int 타입
+
+		for (int i = 0; i < 3; i++) {
+			System.out.println(korean[i]);
+		}
+
+		int[] english = new int[5];
+		System.out.println(english[2]);
+
+
+
+
 		System.out.println("\n프로그램 종료");
 	} // end main()
 
