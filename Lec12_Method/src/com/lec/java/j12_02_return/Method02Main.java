@@ -13,7 +13,27 @@ public class Method02Main {
 	public static void main(String[] args) {
 		System.out.println("메소드의 리턴 타입");
 		
-		// TODO
+		int sum = add(110, 220);
+		System.out.println("sum = " + sum);
+
+		System.out.println(add(40, 20));
+
+		int result = sub(100, 200);
+		System.out.println(result);
+
+		result = sub(add(10, add(100, 300)), 100)
+		;
+		System.out.println(result);
+		/*
+		①	sub(         , 100	)
+			       ↑
+		②	  add(10,         )
+			           ↑
+		③	     add(100, 300)
+
+		    호출순서 : ① ② ③
+		    리턴순서 : ③ ② ①
+		 */
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
@@ -23,7 +43,10 @@ public class Method02Main {
 	//   1) int x
 	//   2) int y
 	// 리턴타입: int
-	// TODO
+	public static int add(int x, int y){
+		int result = x + y;
+		return result;
+	}
 
 	
 	// 메소드 이름: sub
@@ -31,7 +54,9 @@ public class Method02Main {
 	//   1) int x
 	//   2) int y
 	// 리턴타입: int
-	// TODO
+	public static int sub(int x, int y){
+		return x - y;
+	}
 	
 	// 메소드 이름: multiply
 	// 매개변수:
@@ -62,10 +87,10 @@ public class Method02Main {
 } // end class
 
 /*
- * Refactor - Inline   (ALT + SHIFT + I)
- * Refactor - Extract Local Variable  (ALT + SHIFT + L)
- * 	
+   Refactor - Introduce Variable  CTRL + ALT + V
+   Refactor - Inline Variable  CTRL + ALT + N
  */
+
 
 
 

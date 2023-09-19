@@ -29,6 +29,9 @@ package com.lec.java.j12_01_메소드정의;
 			
 */
 
+// 이대리 코드가 너무 DRY 해요. ~
+//   Don't Repeat Yourself.
+
 public class Method01Main {
 	
 	public static void main(String[] args) {
@@ -51,7 +54,15 @@ public class Method01Main {
 		sayHello("장윤근");
 		sayHello("이정식");
 
-		// TODO
+		sayAge(16);
+		sayAge(20);
+
+		sayHello2("오희건", 23);
+		sayHello2("김현민", 25);
+		//sayHello2(34, 77);  // 에러
+
+		System.out.println();
+		sayHello3("이지훈", 24);
 
 		System.out.println("\n프로그램 종료");
 	} // end main()
@@ -71,6 +82,32 @@ public class Method01Main {
 		System.out.println("안녕하세요.");
 		System.out.println("제 이름은 " + name + " 입니다.");
 	}
+
+	// 메소드 이름: sayAge
+	// 매개변수: int 타입의 age
+	// 리턴타입: void(리턴값이 없다)
+	public static void sayAge(int age){
+		System.out.println("Hi~");
+		System.out.println("제 나이는 " + age + "입니다.");
+	}
+
+	// 메소드 이름: sayHello2
+	// 매개변수:
+	//   1) String name
+	//   2) int age
+	// 리턴타입: void
+	public static void sayHello2(String name, int age){
+		System.out.println("안녕!");
+		System.out.println("내 이름은 " + name + " 입니다");
+		System.out.println("내 나이는 " + age + "살 입니다");
+	}
+
+	public static void sayHello3(String name, int age){
+		sayHello(name);
+		sayAge(age);
+	}
+
+
 
 } // end class
 

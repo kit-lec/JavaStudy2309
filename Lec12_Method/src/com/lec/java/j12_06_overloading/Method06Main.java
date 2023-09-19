@@ -25,12 +25,74 @@ public class Method06Main {
 	public static void main(String[] args) {
 		System.out.println("Method Overloading (메소드 중복 정의)");
 		
-		// TODO
+		sayHello();
+		sayHello("이효정");
+		sayHello(25);
+		sayHello("나현민", 19);
+		//sayHello("콩이", "탄이");
+
+		// 매개변수가 자동형변환 될수 있는 메소드가 있으면 그것이 호출된다
+		sayHello('A');  // sayHello(int)
+		byte b = 10;
+		sayHello(b);  // sayHello(short)
+
+		// 오버로딩의 장점
+		System.out.println(10);
+		System.out.println(3.14);
+		System.out.println("Hello");
+		System.out.println(new int[10]);
+
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
-	
-	// TODO
+
+	// 1
+	public static void sayHello() {
+		System.out.println("sayHello() 호출");
+		System.out.println("안녕하세요~");
+	}
+
+	// 리턴타입 다르다고 오버로딩 인정되지 않는다
+//	public static int sayHello(){
+//		return 0;
+//	}
+
+	// 2
+	public static void sayHello(String name){
+		System.out.println("sayHello(String) 호출");
+		System.out.println("Hi~");
+		System.out.println("제 이름은 " + name + "이예요~");
+	}
+
+	// 3-1
+	public static void sayHello(int age){
+		System.out.println("sayHello(int) 호출");
+		System.out.println("My age is " + age);
+	}
+
+	// 3-2
+	public static void sayHello(short age) {
+		System.out.println("sayHello(short) 호출");
+		System.out.println("My age is " + age);
+	}
+
+	// 4
+	public static void sayHello(String name, int age){
+		System.out.println("sayHello(String, int) 호출");
+		System.out.println("하이~ 헬로~");
+		System.out.println("이름: " + name);
+		System.out.println("나이: " + age);
+	}
+
+	// 5
+	public static void sayHello(int age, String name){
+		System.out.println("sayHello(int, String) 호출");
+		System.out.println("하이~ 헬로~");
+		System.out.println("이름: " + name);
+		System.out.println("나이: " + age);
+	}
+
+
 	
 } // end class
 

@@ -21,11 +21,38 @@ public class Method09Main {
 		System.out.println("Call By Value : 값에 의한 호출");
 		System.out.println("Call By Reference : 참조에 의한 호출");
 
-		// TODO
+		int n = 10;
+		incNum(n);
+		System.out.println("incNum(n) 호출후 n : " + n);
+
+		int[] arr = {10};
+		incNum(arr);
+		System.out.println("incNum(int) 호출후 arr[0] : " + arr[0]);
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
-	
-	// TODO
+
+	public static void incNum(int n) {
+		n++;
+		System.out.println("incNum(n): " + n);
+	}
+
+	public static void incNum(int[] arr){
+		arr[0]++;
+		System.out.println("incNum(arr[]):" + arr[0]);
+	}
+
 	
 } // end class
+
+
+
+
+
+
+
+
+
+
+
+

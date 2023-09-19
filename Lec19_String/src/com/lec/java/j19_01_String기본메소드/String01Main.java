@@ -19,22 +19,22 @@ public class String01Main {
 		
 		System.out.println();
 		System.out.println("length()");  // 문자의 개수
-		// TODO
-		
+		System.out.println(str1.length());
+		System.out.println(str2.length());
+
 		System.out.println();
 		System.out.println("concat()");  // 문자열 연결 (concatenation)
-		// TODO
-		
-		
+		System.out.println(str1.concat(str2));
+		System.out.println(str2.concat(str1));
+		System.out.println(str2.concat(str1).concat(str2));
+
 		// ★주의★
 		// 문자열(String) 은 변경불가(immutable) 이기 때문에
 		// 메소드 수행했다고 하여 원본이 변경되지 않는다.
-		// TODO   
-		
-		// ★주의★
-		// empty 문자열과 null 은 다르다
-		// null 인 경우 메소드 수행하면 NullPointerException 발생!
-		// TODO
+		str1.concat(str2);
+		System.out.println(str1);
+		str1 = str1.concat(str2);  // 변경하려면 변수에 덮어쓰기
+		System.out.println(str1);
 		
 		
 		System.out.println();
