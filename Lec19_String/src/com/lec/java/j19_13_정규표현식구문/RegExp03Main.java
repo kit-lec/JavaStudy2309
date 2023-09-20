@@ -47,60 +47,115 @@ public class RegExp03Main {
 		
 		//─────────────────────────────────────────
 		title = "$ : 문자열의 마지막이 이 문자열로 마무리 됨";
-		regex = ""; // TODO
+		regex = "Man$"; // Man 으로 끝나는 문자 패턴
 		arrInput = new String[] {
-				// TODO
+				"SuperMan",
+				"AquaMan",
+				"WonderWoman",
+				"WonderWoMan",
+				"PostMan "
+
 		};
 			
 		//─────────────────────────────────────────
-//		title = "^표현식$ : 정확하게 전체패턴매칭되는 문자열";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = "^표현식$ : 정확하게 전체패턴매칭되는 문자열";
+		regex = "^SuperMan$";
+		arrInput = new String[] {
+				"SuperMan",
+				"Super Man",
+				" SuperMan",
+				"SuperMan "
+
+		};
 		
 		//─────────────────────────────────────────
-//		title = " . : 어떤 문자든지 임의의 '한문자'를 말한다.꼭 하나의 문자와 매칭";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = " . : 어떤 문자든지 임의의 '한문자'를 말한다.꼭 하나의 문자와 매칭";
+		regex = "x.z";
+		arrInput = new String[] {
+				"xyz",    // OK
+				"xxzdfdk",  // xxz
+				"aa10x9zbxbz",  // x9z  xbz
+				"xz",  // x
+				"90x zxx_zdf",  // x z x_z
+				"xbz",   // xbz
+				"xyyz"   // X
+		};
 		
 		//─────────────────────────────────────────
-//		title = " * : 바로 앞의 문자가 없거나 한개 이상의 경우를 매칭";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = " * : 바로 앞의 문자가 없거나 한개 이상의 경우를 매칭";
+		regex = "ab*";
+		arrInput = new String[] {
+				"a",  // 1    a
+				"abc", // 2   ab
+				"ab", // 3    ab
+				"abbbaaaabababbab", // 4  8개
+				"bbba",  // 5   a
+				"cdef"  // 6   X
+		};
 		
 		//─────────────────────────────────────────
-//		title = " + : 바로 앞의 문자를 나타내면 꼭 한개 혹은 그 이상을 매칭";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = " + : 바로 앞의 문자를 나타내면 꼭 한개 혹은 그 이상을 매칭";
+		regex = "ab+";
+		arrInput = new String[] {
+				"a",  // 1    X
+				"abc", // 2   ab
+				"ab", // 3    ab
+				"abbbaaaabababbab", // 4  5개
+				"bbba",  // 5  x
+				"cdef"  // 6   x
+		};
 		
 		//─────────────────────────────────────────
-//		title = " ? : 바로 앞의 문자가 한개 있거나 없는것을 매칭";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = " ? : 바로 앞의 문자가 한개 있거나 없는것을 매칭";
+		regex = "ab?";
+		arrInput = new String[] {
+				"a",  // 1    a
+				"abc",  // 2   ab
+				"kkabcc",  // 3   ab
+				"abbbaaaabababbab", // 4  8개?
+				"bbba"  // 5   a
+		};
 
 		//─────────────────────────────────────────
-//		title = " [] : 안에 존재하는 문자들중 한 문자만을 매칭";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
+		title = " [] : 안에 존재하는 문자들중 한 문자만을 매칭";
+		regex = "[abc]"; // a 또는 b 또는 c 중에 한문자를 매칭.
+		arrInput = new String[] {
+				"able", //  ab
+				"bible",  // b b
+				"cable",  // cab
+				"xenosys", //
+		};
+
+		regex = "[abc]+";
+		regex = "[a-z]+";  // a 부터 z 까지
+
+		arrInput = new String[] {
+				"abc100",
+				"abcDefGHIUJ-KLM123opQrstuz"
+		};
+
+		regex = "[a-zA-Z]+";  // a ~ z, A ~ Z
+		regex = "[^a-zA-Z]+"; // ^ 은 NOT
+		regex = "[a-zA-Z0-9]+";
+		regex = "[a-zA-Z0-9-]+";
+		regex = "[0-9]+";
+
 
 		//─────────────────────────────────────────
-//		title = " {} : 앞에 있는 문자나 문자열의 등장개수를 정함";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
-		
+		title = " {} : 앞에 있는 문자나 문자열의 등장개수를 정함";
+		regex = "a{2}b{2}";
+		arrInput = new String[] {
+				"abb",
+				"abbb",
+				"abbbabbbbbbbbabaabbab",
+		};
+		regex = "ab{2,}";   // b의 개수가 2개 이상
+		regex = "ab{3,5}";  // b의 개수가 3개에서 5개까지
+
+		// 프로젝트 내에서 printf, print, println 을 사용한 곳을 찾아보자?
+		// Find in Files ..
+
+
 		//─────────────────────────────────────────
 //		title = " () : ()안에 있는 글자들을 그룹화 ";
 //		regex = ""; // TODO
