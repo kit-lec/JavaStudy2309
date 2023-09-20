@@ -1,5 +1,6 @@
 package com.lec.java.j19_01_String기본메소드;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /* 문자열 (String) 관련 메소드들
@@ -40,31 +41,39 @@ public class String01Main {
 		System.out.println();
 		System.out.println("charAt(index)"); // 문자열 안의 특정위치(index)의 문자 리턴, 인덱스 범위 벗어나면 StringIndexOutOfBoundsException
 											// 문자열 인덱스는 0 부터 시작!
-		// TODO
+		System.out.println(str1.charAt(0));
+		System.out.println(str1.charAt(1));
 		
 		System.out.println();
 		System.out.println("indexOf(char), indexOf(String)"); // 문자열 안에서 특정 문자(char) 혹은 문자열(String)의 위치(index), 발견 못하면 -1 리턴
-		// TODO
-		
+		System.out.println(str1.indexOf('C'));
+		System.out.println(str1.indexOf('c'));
 		
 		System.out.println();
 		System.out.println("toUpperCase(), toLowerCase");  // 대문자 변환, 소문자 변환
-		// TODO
-		
+		System.out.println(str1);
+		System.out.println(str1.toUpperCase());
+		System.out.println(str1.toLowerCase());
+
 		System.out.println();
 		System.out.println("startsWith(), endsWith()");  // 문자열이 주어진 prefix문자열로 시작하는지 여부 true/false 리턴
 		String prefix = "http://";
 		String url = "www.google.com";
-		// TODO
+		System.out.println(url.startsWith(prefix));
 		
 		System.out.println();
 		System.out.println("split(regex)"); // 문자열을 주어진 문자열로 쪼개어 String[] 리턴
 		String str4 = "HH:MM:SS";
-		// TODO
+		String[] arr = str4.split(":");
+		System.out.println(Arrays.toString(arr));
 		
 		// 공백기준으로 쪼갤때는 정규표현식의 \s+  사용하기 : 공백, 탭, 줄바꿈
-		// TODO		
-		
+		str4 = "Hello My WORLD";
+		str4 = "        Hello      My     WORLD    ";
+		System.out.println(Arrays.toString(str4.split(" ")));
+		System.out.println(Arrays.toString(str4.split("\\s+")));
+		System.out.println(Arrays.toString(str4.trim().split("\\s+")));
+
 		// 단!  "|" 을 할경우는 주의,   ※ split(정규표현식) 을 사용하는 메소드임
 		String str5 = "HH|MM|SS";
 		// TODO
@@ -74,40 +83,44 @@ public class String01Main {
 		System.out.println();
 		System.out.println("String.join(delimeter, elements ...)");
 		String[] str7 = {"Alice", "Bob", "Carol"};
-		// TODO
+		System.out.println(String.join(" - ", str7));
 		
 		
 		System.out.println();
 		System.out.println("substring(beginIndex, endIndex)");  // 문자열의 일부분 추출 beginIndex ~ endIndex직전 까지,  인덱스 범위 벗어마면 IndexOutOfBoundsException 
 		String str8 = "Hello Java";
-		// TODO
-			
-		
+		System.out.println(str8.substring(2, 5));   // 2 부터 5 전까지
+		System.out.println(str8.substring(6));   // 6부터 끝까지
+
 		System.out.println();
 		System.out.println("trim()");   // 좌우의 여백 제거
 		String str9 = "   김동후   ";
-		// TODO
-//		System.out.printf("[%s]\n", str9);
-//		System.out.printf("[%s]\n", str9);
+		System.out.printf("[%s]\n", str9);
+		System.out.printf("[%s]\n", str9.trim());
 
 		// Java11 에 추가:
 		// strip()   좌우 공백 제거
 		// stripLeading()  좌측 공백 제거
 		// stripTrailing() 우측 공백 제거
-//		System.out.printf("[%s]\n", str9);
-//		System.out.printf("[%s]\n", str9);
-//		System.out.printf("[%s]\n", str9);
-		
-		
+		System.out.printf("[%s]\n", str9.strip());
+		System.out.printf("[%s]\n", str9.stripLeading());
+		System.out.printf("[%s]\n", str9.stripTrailing());
+
+		// repeat(n)  문자열 반복
+		System.out.println("-".repeat(20));
+
+
 		System.out.println();
 		System.out.println("replace(target, replacement)");   // 문자열 치환  target → replacement  
 		String str10 = "Hello Language My Language";
-		// TODO
-	
+		System.out.println(str10.replace("My", "Our"));
+		System.out.println(str10.replace("Language", "Java"));  // 매칭되는거 모두 치환
+
 		System.out.println();
 		System.out.println("replaceAll(regex, replacement), replaceFirst(regex, replacement)"); // 정규표현식 사용버젼  , replaceAll() 매칭되는것 전부 치환, replaceFirst() 첫매칭만 치환
-		// TODO
-				
+		System.out.println(str10.replaceAll("Language", "자바"));
+		System.out.println(str10.replaceFirst("Language", "자바"));
+
 		System.out.println();
 		System.out.println("equals(), equalsIgnoreCase()");  // 문자열 비교
 		String str11 = "Java";

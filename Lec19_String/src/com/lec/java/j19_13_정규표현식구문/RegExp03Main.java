@@ -37,17 +37,20 @@ public class RegExp03Main {
 		
 		//─────────────────────────────────────────
 		title = "^ : 바로 문자뒤의 문자열로 시작됨";
+		regex = "^The"; // The 로 시작하는 문자열 패턴
+		arrInput = new String[] {
+				"The Things",
+				"On The Things",
+				" The The The",
+				"There you go"
+		};
+		
+		//─────────────────────────────────────────
+		title = "$ : 문자열의 마지막이 이 문자열로 마무리 됨";
 		regex = ""; // TODO
 		arrInput = new String[] {
 				// TODO
 		};
-		
-		//─────────────────────────────────────────
-//		title = "$ : 문자열의 마지막이 이 문자열로 마무리 됨";
-//		regex = ""; // TODO
-//		arrInput = new String[] {
-//				// TODO
-//		};
 			
 		//─────────────────────────────────────────
 //		title = "^표현식$ : 정확하게 전체패턴매칭되는 문자열";
