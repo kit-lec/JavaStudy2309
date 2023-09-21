@@ -13,7 +13,8 @@ public class Class04Main {
 	public static void main(String[] args) {
 		System.out.println("this & 메소드 체이닝");
 		
-		// TODO
+		Number n1 = new Number();
+		System.out.println(n1.getNum());
 
 		System.out.println("프로그램 종료");
 	} // end main()

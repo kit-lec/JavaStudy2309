@@ -36,7 +36,17 @@ public class Class03Main {
 	public static void main(String[] args) {
 		System.out.println("Getter & Setter");
 		
-		// TODO
+		Number n = new Number();
+		Number n1 = new Number(100);
+
+		//n1.num = 300;
+
+		System.out.println(n1.getNum());
+		n1.setNum(200);
+		System.out.println(n1.getNum());
+
+		n1.setNum(-200);
+		System.out.println(n1.getNum());
 
 		System.out.println("프로그램 종료");
 	} // end main()

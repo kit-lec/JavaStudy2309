@@ -25,7 +25,47 @@ public class Class01Main {
 	public static void main(String[] args) {
 		System.out.println("클래스 생성 & 사용");
 		
-		// TODO
+		MyTV tv1 = new MyTV();
+
+//		tv1.volume = 32;
+//		tv1.channel = 14;
+//		tv1.isPowerOn = true;
+		tv1.displayStatus();
+
+		System.out.println(tv1);
+
+		tv1.powerOnOff();
+		tv1.volumeUp();
+		tv1.volumeUp();
+		tv1.channelUp();
+
+		tv1.displayStatus();
+
+		System.out.println();
+		MyTV tv2 = new MyTV();
+
+		tv2.powerOnOff();
+		tv2.channelUp();
+		tv2.volumeUp();
+		tv2.volumeUp();
+
+		tv2.displayStatus();
+
+		System.out.println("tv1: " + tv1);
+		System.out.println("tv2: " + tv2);
+		System.out.println(tv1 == tv2); // 객체 참조변수간 ==, != 비교는 참조(주소) 비교
+
+		tv1 = tv2;  // 참조(주소)복사 발생!!
+		tv1.displayStatus();
+
+		tv1.powerOnOff();
+		tv2.displayStatus();
+
+		System.out.println("tv1: " + tv1);
+		System.out.println("tv2: " + tv2);
+		System.out.println(tv1 == tv2);
+
+
 
 		System.out.println("\n프로그램 종료");
 	} // end main()
