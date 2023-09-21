@@ -17,4 +17,24 @@ public class Number {
     public void setNum(int num) {
         this.num = num;
     }
+
+    public Number add(Number x){
+        this.num += x.num;
+        return this;
+    }
+
+    public Number sub(Number x){
+        this.num -= x.num;
+        return this;
+    }
+
 }
+
+
+
+
+
+
+
+
+

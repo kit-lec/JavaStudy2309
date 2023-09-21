@@ -36,7 +36,24 @@ public class Class10Main {
 		Model m1 = new Model();
 		System.out.println(m1);  // toString() 값
 
-		// TODO
+		m1.setOld(10);
+		m1.setTitle("자바");
+		m1.setAdult(true);
+
+
+		System.out.println(m1);
+
+		Model m3 = Model.builder()
+				.title("웹개발")
+				.old(76)
+				.isAdult(true)
+				.gender('M')
+				.size((short)10)
+				.build();
+
+		System.out.println(m3);
+
+
 
 		System.out.println("\n프로그램 종료");
 	} // end main
