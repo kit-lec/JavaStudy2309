@@ -1,5 +1,8 @@
 package com.lec.java.j15_04_상속과생성자;
-/* 상속에서 생성자 호출순서
+/**
+ * 상속받은 객체를 생성할때는 반.드.시. 부모객체부터 생성된다!!
+ *
+ * 상속에서 생성자 호출순서
  *   1. 자식 클래스의 생성자에서 명시적으로 부모 클래스의 생성자가
  *      호출되지 않으면, 자동으로 부모 클래스의 "디폴트 생성자"가 호출됨.
  *   
@@ -17,19 +20,20 @@ public class Inherit04Main {
 		
 		System.out.println();
 		// Vehicle 클래스의 인스턴스 생성
-		// TODO
+		Vehicle v1 = new Vehicle();
+		Vehicle v2 = new Vehicle(100);
 		
 		System.out.println();
 		// Car 클래스의 인스턴스 생성
-		// TODO
-		
+		Car car1 = new Car();
+		Car car2 = new Car(55, 88);
 		
 		System.out.println();
 		// HybridCar 클래스의 인스턴스 생성
-		// TODO
-		
-		
+		HybridCar car3 = new HybridCar();
 
+
+		System.out.println("\n".repeat(10));
 		System.out.println("\n프로그램 종료");
 	} // end main()
 } // end class

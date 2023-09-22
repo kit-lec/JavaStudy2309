@@ -11,8 +11,24 @@ public class Inherit03Main {
 		System.out.println("상속 연습");
 		System.out.println("java.lang.Object");
 		
-		// TODO
-		
+		Person p1 = new Person();
+		p1.name = "홍길동";
+		p1.whoAmI();
+
+		System.out.println("-".repeat(20));
+
+		BusinessPerson p2 = new BusinessPerson();
+		p2.name = "허균";
+		p2.company = "(주)재택";
+		p2.showInfo();
+
+		System.out.println(p2);
+		System.out.println(p2.toString());
+		System.out.println("p2: " + p2);
+		// ↑ toString() 은 Object 의 메소드
+		// 내부적으로 toString() 결과를 출력하였더라..
+
+
 		System.out.println("\n프로그램 종료");
 	} // end main()
 } // end class

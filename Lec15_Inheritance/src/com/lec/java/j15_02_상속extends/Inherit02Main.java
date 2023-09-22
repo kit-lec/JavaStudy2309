@@ -30,7 +30,12 @@ public class Inherit02Main {
 		System.out.println();
 
 		// SmartTV 클래스의 인스턴스 생성
-		// TODO
+		SmartTV tv2 = new SmartTV();
+		tv2.isPowerOn = true;
+		tv2.channel = 100;
+		tv2.volume = 10;
+		tv2.ip = "192.168.0.110";
+		tv2.displayInfo();
 
 		System.out.println("\n프로그램 종료");
 	} // end main()

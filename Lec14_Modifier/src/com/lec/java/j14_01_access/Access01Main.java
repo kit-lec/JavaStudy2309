@@ -3,14 +3,16 @@ package com.lec.java.j14_01_access;
 
 /**
  * Modifier (제어자, 수식어, 제한자..)
- *   클래스나  변수, 메소드의 선언부에 붙여주어 부가적인 제어를 하게끔 함
- *
- *   Access modifier (접근제한자)
- *        private, protected, public.
- *
- *   그밖의 modifier 들
- *        final, static, abstract, transient, synchronized, volatile
+ * 클래스나  변수, 메소드의 선언부에 붙여주어 부가적인 제어를 하게끔 함
+ * <p>
+ * Access modifier (접근제한자)
+ * private, protected, public.
+ * <p>
+ * 그밖의 modifier 들
+ * final, static, abstract, transient, synchronized, volatile
  */
+
+import com.lec.java.j14_02_access.Test02;
 
 /**
  * 접근권한 수식어(Access Modifier)  접근제한자
@@ -32,11 +34,26 @@ package com.lec.java.j14_01_access;
 
 public class Access01Main {
 
-	public static void main(String[] args) {
-		System.out.println("접근권한 수식어(Access Modifier)");
-		
-		
-	} // end main()
+    public static void main(String[] args) {
+        System.out.println("접근권한 수식어(Access Modifier)");
+
+        Test01 t1 = new Test01();
+//        t1.privateNum = 10;
+        t1.defaultNum = 20;
+        t1.protectedNum = 30;
+        t1.publicNum = 40;
+
+        // 다른 패키지 에 있는 클래스
+        // 일단 다른 패키지 라면 import 부터 선행되어야 한다
+        Test02 t2 = new Test02();
+
+//		t2.privateNum = 10;
+//		t2.defaultNum = 20;
+//		t2.protectedNum = 40;
+		t2.publicNum = 50;
+
+
+    } // end main()
 
 } // end class Access01Main
 

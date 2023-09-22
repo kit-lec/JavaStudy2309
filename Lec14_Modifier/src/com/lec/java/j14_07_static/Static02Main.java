@@ -12,7 +12,37 @@ public class Static02Main {
 	public static void main(String[] args) {
 		System.out.println("인스턴스 변수/메소드");
 
-		
+		Test.show2(); // static 변수도 기본값으로 초기화 됨을 알수 있다
+
+		Test.sNum = 123;
+		Test.show2();
+
+		// Test.num = 10;
+
+		Test t = new Test();
+		t.num = 100;
+		t.show();
+
+		Test t2 = new Test();
+		t2.show();
+
+		Test.sNum = 987;
+		t.show();
+		t2.show();
+
+		t2.sNum = 340;  // 가능하나, 바람직한 static 사용법이 아님! (warning 뜬다)
+		t.show();
+
+		Test.sNum = 100;
+		t.sNum = 500;
+		t2.sNum = 700;
+		System.out.println(Test.sNum);
+		System.out.println(t.sNum);
+		System.out.println(t2.sNum);
+
+
+
+
 	} // end main()
 
 } // end class Static02Main

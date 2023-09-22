@@ -21,10 +21,24 @@ package com.lec.java.j14_06_static;
 
 public class Static01Main {
 
+	public static void test1(){}
+
+	public void test2(){}
 	
 	public static void main(String[] args) {
 		System.out.println("인스턴스 변수/메소드 vs 클래스 변수/메소드");
-		
+
+		test1();
+
+		// static 메소드 안에서 static이 아닌 메소드를 바로 호출할 수는 없다.
+		// static 은 non-static 을 사용못한다 ★★
+		//test2();
+
+		// 인스턴스 변수/메소드
+		// 인스턴스가 생성된 후에(new 불린 후에) 사용 가능
+		Static01Main tc = new Static01Main();
+		tc.test2();
+
 	} // end main()
 
 } // end class Static01Main
