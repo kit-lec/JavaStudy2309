@@ -34,21 +34,25 @@ public class Exception04Main {
 	public static void main(String[] args) {
 		System.out.println("try ~ catch ~ catch ");
 		
-		int num1 = 123, num2 = 0, result = 0;
+		int num1 = 123, num2 = 10, result = 0;
 		String str = null;
 		int[] numbers = new int[10];
 
 		// TODO : try ~ catch ~ catch .. 사용
-		
+		try {
 			result = num1 / num2;
 			System.out.println("나눈 결과: " + result);
-			
+
 			int length = str.length();
 			System.out.println("스트링 길이: " + length);
-			
+
 			numbers[10] = 11111;
 			System.out.println("numbers: " + numbers[10]);
-
+		} catch (ArithmeticException ex) {
+			System.out.println("산술연산 예외: " + ex.getMessage());
+		} catch (NullPointerException ex) {
+			System.out.println("NPE 예외: " + ex.getMessage());
+		}  // TODO :9/26
 
 		System.out.println("-".repeat(20));
 		System.out.println("multi-catch");

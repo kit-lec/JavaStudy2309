@@ -16,25 +16,25 @@ public class Exception01Main {
 		
 		System.out.println("[1] ArithmeticException");
 		int num1 = 123;
-		int num2 = 3;
+		int num2 = 0;
 
-		// TODO
+		//System.out.println(num1 / num2);
 		
 		System.out.println("[2] ArrayIndexOutOfBoundsException");
 		int[] numbers = new int[10];
 		
-		// TODO
+		//numbers[10] = 100;
 		
 		System.out.println("[3] NegativeArraySizeException");
-		int size = 10;
+		int size = -1;
 		
-		// TODO
+		//numbers = new int[size];
 		
 		
 		System.out.println("[4] NullPointerException(NPE)");
 		String str = "Java";
-		
-		// TODO
+		str = null;
+		//System.out.println(str.length());
 		
 		System.out.println("[5] InputMismatchException");  
 		Scanner sc = new Scanner(System.in);

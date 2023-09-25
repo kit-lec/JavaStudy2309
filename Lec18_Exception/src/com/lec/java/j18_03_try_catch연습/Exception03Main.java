@@ -14,12 +14,19 @@ public class Exception03Main {
 		
 		System.out.println();
 		System.out.println("[1] ArithmeticException");
+
+		// 주의! : try 블럭 안에서 선언된 변수는 try 블럭안에서만 사용되는 지역변수가 된다.
+		//     catch 블럭등 다른 블럭에서도 사용 가능하게 하려면 try 바깥에서 선언해야 한다
 		int num1 = 0;
 		int num2 = 0;
-		
-		// TODO : try ~ catch 로 감싸기
-		System.out.println("num1 / num2 = " + (num1 / num2));
-		
+		try{
+			System.out.println("num1 / num2 = " + (num1 / num2));
+		} catch (ArithmeticException ex) {
+			System.out.println(num1 + " 은 " + num2 + " 로 나누면 안되요");
+			System.out.println(ex.getMessage());
+			ex.printStackTrace();
+		}
+
 		
 		
 		System.out.println();
@@ -27,7 +34,7 @@ public class Exception03Main {
 
 		// TODO : try ~ catch 로 감싸기
 		int[] numbers = new int[10];
-		numbers[100] = 111;
+		//numbers[100] = 111;
 		
 		
 		System.out.println();
@@ -35,7 +42,7 @@ public class Exception03Main {
 
 		// TODO : try ~ catch 로 감싸기
 		String str = null;
-		System.out.println("스트링 길이: " + str.length());
+		//System.out.println("스트링 길이: " + str.length());
 
 		
 		System.out.println();
@@ -43,7 +50,7 @@ public class Exception03Main {
 
 		// TODO : try ~ catch 로 감싸기
 		Object obj = new int[10];
-		String str2 = (String)obj;
+//		String str2 = (String)obj;
 		
 		
 		System.out.println("\n프로그램 정상종료");

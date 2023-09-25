@@ -25,7 +25,17 @@ public class Exception02Main {
 		
 		// 위의 코드를 try~catch 로 만들어 처리
 
-		// TODO
+		try {
+			// 코드 수행 블럭
+			result = num1 / num2;
+			System.out.println("결과: " + result);
+		} catch(ArithmeticException ex) {
+			// catch{ .. } 예외 처리 블럭. 예외 발생시 수행되는 코드들.
+			// 위 try 블럭 수행중에 ArithmeticException 이 발생(throw)되면 이를 처리(handling)하는 catch 블럭
+
+			System.out.println("0으로 나누는 예외 발생");
+			System.out.println(ex.getMessage());
+		}
 		
 		
 		System.out.println();
