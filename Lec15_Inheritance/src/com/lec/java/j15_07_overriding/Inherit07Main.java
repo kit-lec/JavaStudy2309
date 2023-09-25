@@ -23,11 +23,16 @@ public class Inherit07Main {
 		
 		System.out.println();
 		// Person 클래스의 인스턴스 생성
-		// TODO
+		Person p1 = new Person();
+		p1.setName("abc");
+		p1.showInfo();
 		
 		System.out.println();
 		// BusinessPerson 클래스의 인스턴스를 생성
-		// TODO
+		BusinessPerson p2 = new BusinessPerson();
+		p2.setName("성춘향");
+		p2.setCompany("(주)조선");
+		p2.showInfo();
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
