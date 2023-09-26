@@ -14,12 +14,28 @@ public class Generic01Main {
 		System.out.println();
 		System.out.println("[1] generic 클래스 사용 전");		
 
-		// TODO
+		Orange orange1 = new Orange(20);
+		OrangeBox orangeBox1 = new OrangeBox(orange1);
+		orangeBox1.pullOut().displaySugar();
+
+		Apple a1 = new Apple(100);
+		AppleBox appleBox1 = new AppleBox(a1);
+		appleBox1.pullOut().displayWeight();
+
+		Banana b1 = new Banana(15);
+		BananaBox bananaBox1 = new BananaBox(b1);
+		bananaBox1.pullOut().displayNum();
+
+
 		
 		System.out.println();
 		System.out.println("[2] generic 클래스 사용");
 		
-		// TODO
+		FruitBox<Orange> orangeBox2 = new FruitBox<>(orange1);
+		orangeBox2.pullOut().displaySugar();
+
+		FruitBox<Apple> appleBox2 = new FruitBox<>(a1);
+		appleBox2.pullOut().displayWeight();
 
 		System.out.println("\n프로그램 종료");
 	} // end main()
@@ -63,7 +79,56 @@ class Apple{
 
 //------------------------------------------
 // 위 과일 들을 담을 box 클래스들 정의
-// TODO
+
+class BananaBox {
+	Banana banana;
+
+	public BananaBox() {
+	}
+	public BananaBox(Banana banana) {
+		this.banana = banana;
+	}
+
+	public Banana pullOut() {return banana;}
+}
+
+class OrangeBox{
+	Orange orange;
+
+	public OrangeBox() {}
+	public OrangeBox(Orange orange) {this.orange = orange;}
+
+	public Orange pullOut() { return orange; }
+
+} // end class OrangeBox
+
+class AppleBox{
+	Apple apple;
+
+	public AppleBox() {}
+	public AppleBox(Apple apple) {this.apple = apple;}
+
+	public Apple pullOut() { return apple; }
+
+} // end class AppleBox
+
+//Generic 클래스:
+//클래스의 멤버변수나 혹은 메소드의 리턴'타입', 매개변수 등의 '타입'을
+//지정하지 않고 generic(일반적으로)하게 정의하는 클래스
+// < > 안에 타입매개변수 (type parameter) 지정
+
+class FruitBox<T> {
+	T fruit;   // T타입 필드
+	
+	public FruitBox() {}
+	public FruitBox(T fruit) { this.fruit = fruit; }  // T타입 매개변수
+	
+	public T pullOut() { return fruit; }  // T 타입 리턴
+}
+
+
+
+
 
 
 
