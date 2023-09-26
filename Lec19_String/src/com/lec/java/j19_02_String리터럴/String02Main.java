@@ -1,5 +1,7 @@
 package com.lec.java.j19_02_String리터럴;
 
+import java.sql.SQLOutput;
+
 /* String 생성자, String literal(상수)
  */
 public class String02Main {
@@ -24,9 +26,13 @@ public class String02Main {
 		String str1 = "Hello";   
 		String str2 = "Hello";
 
-		
-		// TODO
-		
+		System.out.println(str1 == str2);  // 주소비교 (동일 참조)
+
+		str2 = "He".concat("llo");
+		System.out.println("str1: " + str1);
+		System.out.println("str2: " + str2);
+		System.out.println(str1 == str2);
+
 		
 		System.out.println();
 		System.out.println("[2] String 생성자 사용");

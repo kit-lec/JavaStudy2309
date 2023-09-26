@@ -7,9 +7,14 @@ public class TestClass {
 	public int divide(int x, int y) {
 		int result = 0;
 
+//		result = x / y;
+
 		// TODO : try ~ catch 처리하기
-		
-		result = x / y;
+		try{
+			result = x / y;
+		} catch(ArithmeticException ex) {
+			System.out.println(ex.getMessage());
+		}
 
 		return result;
 	} // end divide()
@@ -23,7 +28,7 @@ public class TestClass {
 	
 	
 	// TODO : throws 사용하기
-	public int divide2(int x, int y)  {
+	public int divide2(int x, int y) throws Exception {
 		return x / y;
 	} // end divide2()
 	
@@ -32,7 +37,7 @@ public class TestClass {
 	// 굳이 호출하는 쪽에서 매번 예외 처리 할 필요는 없다
 	
 	// TODO : throws RuntimeException 사용하기
-	public int divide3(int x, int y){
+	public int divide3(int x, int y) throws RuntimeException{
 		return x / y;
 	} // end divide3()
 

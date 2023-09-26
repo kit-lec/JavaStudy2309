@@ -35,7 +35,7 @@ public class Exception04Main {
 		System.out.println("try ~ catch ~ catch ");
 		
 		int num1 = 123, num2 = 10, result = 0;
-		String str = null;
+		String str = "hello";
 		int[] numbers = new int[10];
 
 		// TODO : try ~ catch ~ catch .. 사용
@@ -46,13 +46,20 @@ public class Exception04Main {
 			int length = str.length();
 			System.out.println("스트링 길이: " + length);
 
-			numbers[10] = 11111;
-			System.out.println("numbers: " + numbers[10]);
+			numbers[0] = 11111;
+			System.out.println("numbers: " + numbers[0]);
+
+			Integer.parseInt(str);
+
 		} catch (ArithmeticException ex) {
 			System.out.println("산술연산 예외: " + ex.getMessage());
 		} catch (NullPointerException ex) {
 			System.out.println("NPE 예외: " + ex.getMessage());
-		}  // TODO :9/26
+		} catch (ArrayIndexOutOfBoundsException ex ){
+			System.out.println("배열 인덱스 예외: " + ex.getMessage());
+		} catch (Exception ex){ // 나머지 처리 안된 예외들을 일괄 처리할때 Exception 으로 catch 한다
+			System.out.println("Exception: " + ex.getMessage() + " " + ex.getClass());
+		}
 
 		System.out.println("-".repeat(20));
 		System.out.println("multi-catch");
@@ -61,9 +68,17 @@ public class Exception04Main {
 
 		// TODO : multi-catch 사용하기
 
-//			str = null;
-//			str.length();
-//			int n = 123 / 0;
+		try{
+			str = null;
+			str.length();
+			int n = 123 / 0;
+		} catch(ArithmeticException
+//				| Exception  // 다른 레벨의 예외를 같이 나열하면 앙되요.
+				| NullPointerException
+				| ArrayIndexOutOfBoundsException ex){
+			System.out.println(ex.getClass());
+			System.out.println(ex.getMessage());
+		}
 
 
 

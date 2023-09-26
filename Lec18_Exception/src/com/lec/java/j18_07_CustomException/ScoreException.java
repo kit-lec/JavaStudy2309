@@ -4,10 +4,16 @@ package com.lec.java.j18_07_CustomException;
 // Exception 또는 RuntimeException 클래스를 상속 받아서 만듬
 
 // TODO : Exception 을 상속받아 예외 클래스 정의하기
-public class ScoreException  {
+public class ScoreException extends Exception  {
 
 	// 생성자
-	// TODO
+	public ScoreException(){
+        super("점수 입력 오류");
+    }
+
+    public ScoreException(String msg){
+        super(msg);
+    }
 	
 	
 } // end class ScoreException

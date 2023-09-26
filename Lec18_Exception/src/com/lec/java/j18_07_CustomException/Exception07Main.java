@@ -11,11 +11,15 @@ public class Exception07Main {
 	
 	
 	// TODO : ScoreException 을 throws 하는 메소드 만들기
-	public static int inputScore(){
+	public static int inputScore() throws ScoreException{
 		int score = sc.nextInt();
 
-		// TODO
-		
+		if(score < 0 || score > 100){
+			//ScoreException ex = new ScoreException();
+			ScoreException ex = new ScoreException(score + " 값은 입력불가(0 ~ 100)");
+			throw ex;  // 예외 객체를 인위적으로 throw
+		}
+
 		return score;
 	} // end inputScore()
 	
@@ -26,15 +30,20 @@ public class Exception07Main {
 		System.out.println();
 
 		// TODO : ScoreException 을 catch 해보자
-		
+		try{
 			System.out.println("국어 점수 입력:");
 			int kor = inputScore();
 			System.out.println("kor = " + kor);
-			
+
 			System.out.println("영어 점수 입력:");
 			int eng = inputScore();
 			System.out.println("eng = " + eng);
-			
+		} catch(ScoreException ex) {
+			System.out.println(ex.getMessage());
+		} finally {
+			sc.close();
+		}
+
 
 			
 		System.out.println("프로그램 종료");

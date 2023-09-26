@@ -36,15 +36,44 @@ public class Exception05Main {
 		// try 블록이나 catch 블록 안에 return이 있더라도,
 		// finally 블록 안의 코드들이 다 실행된 이후에
 		// return이 실행되게 됨.
-		
 
-		// TODO : finally
-		
-		
-		
-		
-		
-		
+
+		// ※ 각각의 경우에 #1, #2, #3, #4, #5, #6 의 실행순서가 어케 될까?
+		System.out.println("#1 try{} 직전 ");
+		try {
+			System.out.println("#2 try {} 시작");
+
+			int[] numbers = new int[10];
+			numbers[10] = 123;
+
+//			String str = null;
+//			str.length();
+
+			System.out.println("#3 try {} 종료");
+		} catch (ArrayIndexOutOfBoundsException ex) {
+			System.out.println("#4 catch{}");
+			System.out.println("예외 메시지: " + ex.getMessage());
+
+			return;
+		} finally {
+			System.out.println("#5 finally");
+		}
+
+		System.out.println("#6 try 종료후");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		// try블럭, catch블럭, finally 블럭등에서 두루두루
 		// 사용할 변수는 try블럭 전에 선언하고, 초기화 까지 하자.
 

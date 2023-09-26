@@ -33,16 +33,35 @@ public class String03Main {
 		
 		System.out.println("[String: immutable]");
 
-		// TODO
-				
+		String str1 = "Hello";
+		String str2 = str1;
+
+		System.out.println(str1 == str2);  // 동일 참조
+		System.out.println("str1: " + str1);
+		System.out.println("str2: " + str2);
 		
+		str1 = str1.concat("Java");
+
+		System.out.println(str1 == str2);  // fasle
+		System.out.println("str1: " + str1);
+		System.out.println("str2: " + str2);
+
 		System.out.println();
 		System.out.println("[StringBuffer: mutable]");
 
-		
-		// TODO
-		
-		
+		StringBuffer buff1 = new StringBuffer("Hello");
+		StringBuffer buff2 = buff1;
+
+		System.out.println(buff1 == buff2);  // true 동일 참조
+		System.out.println("buff1: " + buff1);
+		System.out.println("buff2: " + buff2);
+
+		buff1.append("Java");  // mutable 객체의 메소드는 동일한 동작이라도 immutable과 이름이 다르게 설계되어 있다
+								// String.concat()  vs  StringBuffer.append()
+
+		System.out.println(buff1 == buff2);  // ??
+		System.out.println("buff1: " + buff1);
+		System.out.println("buff2: " + buff2);
 		
 		// StringBuffer:
 		//  Java ver 1.0부터 있던 클래스
