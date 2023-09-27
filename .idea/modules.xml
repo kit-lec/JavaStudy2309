@@ -25,6 +25,7 @@
       <module fileurl="file://$PROJECT_DIR$/Lec21_Date_Time/Lec21_Date_Time.iml" filepath="$PROJECT_DIR$/Lec21_Date_Time/Lec21_Date_Time.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec22_Wrapper/Lec22_Wrapper.iml" filepath="$PROJECT_DIR$/Lec22_Wrapper/Lec22_Wrapper.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec23_Generic/Lec23_Generic.iml" filepath="$PROJECT_DIR$/Lec23_Generic/Lec23_Generic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec24_Collection/Lec24_Collection.iml" filepath="$PROJECT_DIR$/Lec24_Collection/Lec24_Collection.iml" />
     </modules>
   </component>
 </project>
