@@ -49,7 +49,11 @@ public class Collection03Main {
 		//		Student{id='T001', name='Peter', grade=1, major='Theater', score=[국: 59,영: 88,수: 21]}
 		System.out.println("\n1학년, 3학년 학생 출력");
 		{
-			// TODO
+			for(var s : students){
+				if(s.getGrade() == 1 || s.getGrade() == 3){
+					System.out.println(s);
+				}
+			}
 		}
 
 		//------------------------------------------------------------

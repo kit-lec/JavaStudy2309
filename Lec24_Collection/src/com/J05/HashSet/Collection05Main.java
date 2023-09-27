@@ -17,10 +17,7 @@ package com.J05.HashSet;
 	 	(※ HashXXX ← '검색속도 향상'을 쓰는 자료구조 입니다)
 */
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,38 +27,51 @@ public class Collection05Main {
 		System.out.println("HashSet 클래스");
 		
 		// Integer 타입을 저장할 수 있는 HashSet 인스턴스 생성
-		// TODO
+		Set<Integer> hset = new HashSet<>();
 		
 		// 데이터 저장: add()
-		// TODO
-		
+		hset.add(100);
+		hset.add(200);
+		hset.add(300);
+		hset.add(100);
+		hset.add(400);
+		hset.add(500);
+		hset.add(100);
+		hset.add(1);
+
 		// HashSet의 크기: size()
-		// TODO
-		
+		System.out.println("Set 의 size(): " + hset.size());
 		// Set은 중복 저장을 허용하지 않는다.
 		
 		// 데이터 검색:
 		// Set은 인덱스가 없기 때문에 get() 메소드를 제공하지 않습니다.
 		// 데이터 검색을 위해서는 Iterator를 사용해야 함
 		System.out.println();
-		// TODO
-		
-		
-		
-		
+		Iterator<Integer> itr = hset.iterator();
+		while(itr.hasNext()){
+			System.out.println(itr.next());
+		}
+
 		// 데이터 삭제
 		// remove(element): Set에 있는 element를 찾아서 삭제
 		//   element 있다면 삭제 후 true를 리턴
 		//   element 없다면 false 리턴
-		// TODO
+		System.out.println("삭제결과: " + hset.remove(1));   // 주의) index 1 를 삭제하는게 아니다!!!
+		System.out.println("삭제결과: " + hset.remove(1));
 		
 		System.out.println();
 		System.out.println("삭제 후:");
-		// TODO
+		for(var e : hset){
+			System.out.println(e);
+		}
 		
 		// Set 자료형 데이터 변경을 할 수 있는 set() 메소드를 제공하지 않습니다.
 		// 삭제(remove) 후 추가(add)하면 변경하는 효과
 		// TODO : 500 -> 555 로 변경하고 싶다면?
+		hset.remove(500);
+		hset.add(555);
+		System.out.println("변경후:" + hset);
+
 		
 		
 		// enhanced-for 사용

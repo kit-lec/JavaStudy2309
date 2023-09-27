@@ -21,13 +21,16 @@ package com.j04.LinkedList;
 	3. 데이터 참조가 불편 - 단점
 */
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Collection04Main {
 
 	public static void main(String[] args) {
 		System.out.println("Linked List");
 		
 		// Integer 타입을 저장할 수 있는 LinkedList 인스턴스 생성
-		// TODO
+		List<Integer> list = new LinkedList<>();
 		
 		// LinkedList에 데이터 저장: add()
 		// TODO

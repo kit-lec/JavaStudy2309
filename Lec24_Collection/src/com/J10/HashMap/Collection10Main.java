@@ -17,11 +17,15 @@ package com.J10.HashMap;
 	  1. key는 중복되지 않는 값만 허용
 	  2. value는 같더라도 key 값이 다르면 저장 가능
 	  3. 검색, 수정, 삭제를 할 때 key를 사용
+
+	Map 의 데이터 원소는 key-value 쌍 => Map.Entry<K,V>
 */
 
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,36 +37,42 @@ public class Collection10Main {
 		// HashMap 인스턴스 생성
 		// Key - Integer 타입
 		// Value - String 타입
-		// TODO
+		Map<Integer, String> hmap = new HashMap<>();
 		
 		// 데이터 저장: put(key, value) 메소드 사용
-		// TODO
-		
+		System.out.println("put 결과: " + hmap.put(1, "이지훈"));
+		System.out.println("put 결과: " + hmap.put(2, "장윤근"));
+		System.out.println("put 결과: " + hmap.put(3, "이재환"));
+		System.out.println("put 결과: " + hmap.put(1, "이정식"));
+
 		// 기존에 없던 key 값으로 put 하면 null 리턴하고
 		// 같은 키 값으로 데이터를 put하게 되면, 기존 값이 수정(replace)되고 기존 값을 리턴함
 
 		
 		// 저장된 데이터 개수 확인 : size()
-		// TODO
-		
-		System.out.println();
+		System.out.println("Map 의 size(): " + hmap.size());
+		System.out.println(hmap);
 		
 		
 		// 데이터 읽기
 		// get(key) 사용해서 value 읽기
 		System.out.println();
-		// TODO
+		System.out.println(hmap.get(1));
+		System.out.println(hmap.get(5));  // 없는 key 값에 대해선 null 리턴
 
 		// getOrDefault(key, default)
 		// 없는 key 값에 대해 default 값 리턴
 		System.out.println();
-		// TODO
+		System.out.println(hmap.getOrDefault(1, "김철수"));
+		System.out.println(hmap.getOrDefault(5, "김철수"));
 
 		
 		// 데이터 삭제 
 		// remove(key) : 삭제된 value 리턴
 		// 없는 key 삭제하면 null 리턴
-		// TODO
+		System.out.println("삭제: " + hmap.remove(2));
+		System.out.println("삭제: " + hmap.remove(2));   // null
+		System.out.println(hmap);
 		
 		// 방법1 HashMap에서 Iterator 사용
 		// 1. HashMap의 keySet() 메소드를 사용해서
@@ -70,8 +80,15 @@ public class Collection10Main {
 		// 2. 1에서 만들어진 Set에 있는 iterator() 메소드를 사용해서
 		// Iterator를 생성
 		System.out.println();
-		
-		// TODO
+		Set<Integer> keySet = hmap.keySet();
+		System.out.println("keySet : " + keySet);
+
+		Collection<String> values =  hmap.values();
+		System.out.println("values : " + values);
+
+		//Set<Map.Entry<Integer, String>> entrySet = hmap.entrySet();
+		var entrySet = hmap.entrySet();
+		System.out.println("entrySet : " + entrySet);
 		
 		
 		System.out.println();
@@ -79,7 +96,9 @@ public class Collection10Main {
 		// 방법2 : Map.Entry 사용
 		// entrySet() 은 Set<Entry<Integer, String>> 리턴함
 
-		// TODO
+		for(Map.Entry<Integer, String> entry : hmap.entrySet()){
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		}
 		
 		// 방법3 : toString()
 		// TODO

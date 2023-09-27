@@ -1,5 +1,8 @@
 package com.J08.TreeSet;
 
+import java.util.Iterator;
+import java.util.TreeSet;
+
 /* TreeSet
 
  Collection<E>
@@ -16,21 +19,30 @@ public class Collection08Main {
 		System.out.println("TreeSet 클래스");
 		
 		// Integer 타입을 저장할 수 있는 TreeSet 인스턴스 생성
-		// TODO
+		TreeSet<Integer> tset = new TreeSet<>();
 		
 		// 데이터 저장 : add()
-		// TODO
+		tset.add(11);
+		tset.add(2);
+		tset.add(14);
+		tset.add(1);
+		tset.add(7);
+		tset.add(15);
+		tset.add(5);
+		tset.add(8);
 		
 		// 데이터 검색 - Iterator 사용
 		// TreeSet인 경우에 iterator() 메소드 오름차순 정렬
 		System.out.println("오름차순:");
-		// TODO
+		Iterator<Integer> itr = tset.iterator();
+		while(itr.hasNext()) System.out.println(itr.next());
 		
 		
 		System.out.println();
 		System.out.println("내림차순:");
 		// 내림차순 Iterator : descendingIterator() 사용
-		// TODO
+		itr = tset.descendingIterator();
+		while(itr.hasNext()) System.out.println(itr.next());
 		
 		// enhanced for
 		System.out.println();
