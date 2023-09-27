@@ -120,6 +120,16 @@ public class Collection05Main {
 			// https://guava.dev/releases/22.0/api/docs/com/google/common/collect/Sets.html#newHashSet--
 			// Sets.newHashSet("a", "b", "c")
 		}
+
+		System.out.println("List 의 중복 데이터 제거");
+		{
+			List<String> list = Arrays.asList("안수영", "양효준", "박채윤", "양효준", "안수영");
+			System.out.println(list);
+			Set<String> set = new HashSet<>(list);
+			list = new ArrayList<>(set);
+			System.out.println(list);
+			
+		}
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()

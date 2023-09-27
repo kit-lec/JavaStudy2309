@@ -22,10 +22,7 @@ package com.J10.HashMap;
 */
 
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -89,8 +86,15 @@ public class Collection10Main {
 		//Set<Map.Entry<Integer, String>> entrySet = hmap.entrySet();
 		var entrySet = hmap.entrySet();
 		System.out.println("entrySet : " + entrySet);
-		
-		
+
+
+		Iterator<Integer> itr = keySet.iterator();
+		while(itr.hasNext()){
+			int key = itr.next();  // key 값
+			System.out.println(key + " : " + hmap.get(key));  // key - value
+
+		}
+
 		System.out.println();
 		
 		// 방법2 : Map.Entry 사용
@@ -149,11 +153,42 @@ public class Collection10Main {
 		// 5 : 1개
 		
 		System.out.println("HashMap 응용: 배열에서 발생빈도 구하기");
-		int arr[] = {2, 4, 5, 4, 3, 3, 4};
-		// TODO
+		int arr[] = {2, 4, 5, 4, 3, 3, 4, 1, 1, 1, 1, 1, 5, 5, 5, 5};
+		printFreq(arr);
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
+
+	private static void printFreq(int[] arr) {
+		// 발생빈도를 담을 Map<> 준비
+		// key : 등장 데이터
+		// value : 등장 횟수
+		HashMap<Integer, Integer> hmap = new HashMap<>();
+
+		for (int i = 0; i < arr.length; i++) {
+
+			// 방법1 : get() 사용
+//			{
+//				Integer count = hmap.get(arr[i]);
+//				if(count == null)   // 기존에 해당 key값이 없었다면 (즉, 첫 등장이면)
+//					hmap.put(arr[i], 1);  // 등장 횟수 1
+//				else               // 기존에 key 값이 존재했던 (즉, 이전에 1번이상 등장했었다)
+//					hmap.put(arr[i], count + 1);  // 기존 등장 횟수에 +1
+//			}
+
+			// 방법2 : getOrDefault()
+			{
+				Integer count = hmap.getOrDefault(arr[i], 0);
+				hmap.put(arr[i], count + 1);
+			}
+
+		} //  end for
+
+		// 결과 출력
+		for(var e : hmap.entrySet()){
+			System.out.println(e.getKey() + " : " + e.getValue() + "개");
+		}
+	}
 
 	// TODO
 	

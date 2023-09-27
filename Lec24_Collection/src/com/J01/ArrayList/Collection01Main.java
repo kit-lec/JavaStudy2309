@@ -119,28 +119,40 @@ public class Collection01Main {
 			List<String> list;
 
 			// List <- 배열
-//			list = TODO;
-//			System.out.println(list);
+			list = Arrays.asList(new String[]{"반숙", "완숙", "프라이"});
+			System.out.println(list);
 
 			// List <- var args
-//			list = TODO;
-//			System.out.println(list);
+			list = Arrays.asList("반숙", "완숙", "프라이");
+			System.out.println(list);
 
 			// Stream 사용 (Java8 이상)
-//			list = TODO
-//			System.out.println(list);
+			list = Stream.of("삽겹살", "목살", "안창살").collect(Collectors.toList());
+			System.out.println(list);
 
 			// Factory method (Java9 이상)
 			// ★ immutable list(unmodifiable list) 가 생성된다.
-//			list = TODO;
-//			System.out.println(list);
+			list = List.of("소금장", "기름장", "쌈장");
+			System.out.println(list);
+			//list.add("된장");  //  불가
 
 			// Double-brace initialization
 			// 비추
-//			list = TODO
-//			System.out.println(list);
+			list = new ArrayList<>(){{
+				add("New York");
+				add("Rio");
+				add("Tokyo");
+			}};
+			System.out.println(list);
 		}
 
+		{
+			Object obj = Integer.valueOf(10);  // Object <- Integer
+			Object[] arr = new Integer[5];
+
+			// 제네릭은 '공변성(covariance)' 이 없다!
+			//ArrayList<Object> list = new ArrayList<Integer>();
+		}
 
 		System.out.println("\n프로그램 종료");
 	} // end main
