@@ -35,6 +35,7 @@ package com.J01.ArrayList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -45,22 +46,37 @@ public class Collection01Main {
 		System.out.println("ArrayList<E>");
 		
 		// ArrayList 선언 - ArrayList 인스턴스 생성
-		// TODO
+		List<Integer> list1 = new ArrayList<>();
 		
 		// 데이터 추가(저장): add(element) 메소드 사용
 		//               add(index, element) -> index 번째 삽입
-		// TODO
-		
-		
+		list1.add(100);
+		list1.add(400);
+		list1.add(500);
+		list1.add(200);  // -> [100, 400, 500, 200]
+		list1.add(2, 700);   // -> [100, 400, 700, 500, 200]
+		list1.add(2, 200);    // -> [100, 400, 200, 700, 500, 200]
+
 		// 데이터 참조(읽기, 검색): get(index) 메소드 사용
 		// size(): ArrayList의 크기를 반환(리턴)
-		// TODO
+		System.out.println("size(): " + list1.size());
+		for(int i = 0; i < list1.size(); i++){
+			System.out.println(list1.get(i));
+		}
 		
 		// 데이터 삭제: remove(index) 메소드 사용
-		// TODO
+		list1.remove(2);
+		System.out.println("삭제후]");
+		for(int i = 0; i < list1.size(); i++){
+			System.out.println(list1.get(i));
+		}
 		
 		// 데이터 수정: set(index, element) 메소드 사용
-		// TODO
+		list1.set(2, 333);
+		System.out.println("수정후]");
+		for(var e : list1){
+			System.out.println(e);
+		}
 
 		// 데이터 존재여부: contains() => true/false
 		// TODO
@@ -78,22 +94,24 @@ public class Collection01Main {
 		System.out.println("Iterator 를 사용한 출력");
 		// Iterator(반복자) 사용법
 		// iterator() 메소드를 사용해서 인스턴스 생성
-		// TODO
+		Iterator<Integer> itr = list1.iterator();
 		
 		// hasNext(): iterator가 다음 원소를 가지고 있는 지(true/false)
 		// next(): 현재 iterator 위치의 원소를 값을 리턴하고,
 		//   iterator의 위치를 다음 원소의 위치로 변경
-		// TODO
+		while(itr.hasNext()){
+			System.out.println(itr.next());
+		}
 		
 		
 		System.out.println("forEach() 를 사용한 출력");
 		// forEach() + functional interface
 		// Java8 부터 등장
-		// TODO
+		list1.forEach(System.out::println);
 		
 		System.out.println("toString() 사용");
 		// Collection<> 대부분은 toString() 오버라이딩 되어 있다.
-		// TODO
+		System.out.println(list1);
 
 		System.out.println("\n다양한 List<> initializer");
 		// 참고: https://www.baeldung.com/java-init-list-one-line

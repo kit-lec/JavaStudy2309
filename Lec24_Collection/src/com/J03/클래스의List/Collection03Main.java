@@ -22,7 +22,22 @@ public class Collection03Main {
 		// 국어, 영어, 수학 -> 99, 88, 76
 		System.out.println("\n학생 정보 수정");
 		{
-			// TODO
+			for(int i = 0; i < students.size(); i++){
+				Student stu = students.get(i);
+
+				if("김동혁".equals(stu.getName())){
+					System.out.println("수정전: " + stu);
+
+					stu.setId("D002");
+					stu.getScore().setKorean(99);
+					stu.getScore().setEnglish(88);
+					stu.getScore().setMath(76);
+
+					System.out.println("수정후: " + stu);
+					break;
+				}
+
+			}
 		}
 
 		//------------------------------------------------------------

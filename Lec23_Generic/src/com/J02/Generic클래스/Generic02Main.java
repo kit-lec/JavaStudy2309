@@ -22,11 +22,45 @@ public class Generic02Main {
 	public static void main(String[] args) {
 		System.out.println("Generic 클래스 2");
 
-		// TODO
-		
+		// Test<int, String> t1;
+		Test<Integer, String> t1 = new Test<>(123, "Hello Java");
+		t1.display();
+
+		Test t2 = new Test(3.14, 50f);
+		Test t3 = new Test("Hello", 300L);
+		t3.display();
+
 		System.out.println("\n프로그램 종료");
 	} // end main
 
 } // end class Collection02Main
 
-// TODO
+class Test<T, U> {
+
+	T item1;
+	U item2;
+	// static T item3;
+
+	public Test(T item1, U item2) {
+		this.item1 = item1;
+		this.item2 = item2;
+	}
+
+	public void display(){
+		System.out.println("item1: " + item1);
+		System.out.println("item2: " + item2);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
