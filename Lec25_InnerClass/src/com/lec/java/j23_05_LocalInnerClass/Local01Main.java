@@ -17,6 +17,8 @@ public class Local01Main {
 	public static void main(String[] args) {
 		System.out.println("Local Inner Class(지역 내부 클래스)");
 
+		TestOuter out = new TestOuter();
+		out.localMethod();
 		
 	} // end main()
 

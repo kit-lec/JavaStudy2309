@@ -13,8 +13,23 @@ public class Inner01Main {
 
 	public static void main(String[] args) {
 		System.out.println("Member Inner Class(멤버 내부 클래스)");
-		
-		
+
+		TestOuter out = new TestOuter(100);
+
+		// 멤버 내부 클래스의 인스턴스 생성
+		// 멤버 내부 클래스의 이름: [외부클래스 이름].[멤버 내부클래스 이름]
+		// [외부클래스 이름].[내부클래스 이름] 참조변수 =
+		//      [외부클래스 인스턴스].new 내부클래스 생성자();
+		TestOuter.TestInner in = out.new TestInner(111);
+		in.printOuterValue();
+		in.printInnerValue();
+
+		// 하나의 외부 클래스 인스턴스를 이용해서
+		// 멤버 내부 클래스의 인스턴스는 여러개를 생성할 수 있다.
+		TestOuter.TestInner in2 = out.new TestInner(123);
+		in2.printOuterValue();
+		in2.printInnerValue();
+
 	} // end main()
 
 } // end class Inner01Main

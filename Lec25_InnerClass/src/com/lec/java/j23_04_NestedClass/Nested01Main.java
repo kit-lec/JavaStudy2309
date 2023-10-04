@@ -23,6 +23,12 @@ public class Nested01Main {
 	public static void main(String[] args) {
 		System.out.println("Nested Class(중첩 클래스): static inner class");
 
+		TestOuter.TestNested nest1 = new TestOuter.TestNested();
+		nest1.displayInfo();
+
+		TestOuter.TestNested nest2 = new TestOuter.TestNested();
+		nest2.displayInfo();
+
 		
 		
 	} // end main()

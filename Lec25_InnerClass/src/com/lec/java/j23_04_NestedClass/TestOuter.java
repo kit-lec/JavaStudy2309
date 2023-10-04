@@ -10,7 +10,16 @@ public class TestOuter {
 	public TestOuter(int value) {
 		this.value = value;
 	}
-	
+
+	public static class TestNested {
+		public void displayInfo(){
+//			System.out.println("value = " + value);
+			// 컴파일 오류: static 클래스에서는 외부 클래스의
+			// static이 아닌 멤버를 사용할 수 없다.
+
+			System.out.println("count = " + count);
+		}
+	}
 	
 	
 } // end class TestOuter
