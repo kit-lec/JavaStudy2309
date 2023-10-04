@@ -22,19 +22,62 @@ public class Anonymous01Main {
 	public static void main(String[] args) {
 		System.out.println("Anonymous Inner Class(익명 내부 클래스)");
 		
-		// TODO
+		Person p = new Person("QWERTY");
+		MyReadable r = p.createInstance(20);
+		r.readInfo();
+
+		System.out.println(r);
 		
 		
 		//------------------------------------------------
 		System.out.println();
-		// TODO
+		MyReadable r2 = new MyReadable() {
+
+			int a = 10;
+
+			@Override
+			public void readInfo() {
+				System.out.println("readInfo()");
+				System.out.println("a = " + a);
+			}
+		};
+
+		r2.readInfo();
+
+		int n = 12;
+
+		new MyReadable(){
+			int a = 200;
+
+			@Override
+			public void readInfo() {
+				System.out.println(a + 100 + n);
+			}
+		}.readInfo();
+
+		//n = 100;
 		
 		
 		//------------------------------------------------
 		System.out.println();
-		// TODO
-		
-		
+		System.out.println(new MyClass().methodA(30));
+		System.out.println(new MyClass(){
+			int d = 400;
+
+			@Override
+			int methodA(int c) {
+				return super.methodA(c) + d;
+			}
+		}.methodA(30));
+
+		int k = 300;
+		int result = new MyAbstract(){
+			@Override
+			int methodB(int a) {
+				return a + n + m + k;
+			}
+		}.methodB(100);
+		System.out.println("result = " + result);
 		
 
 		System.out.println("\n프로그램 종료");
@@ -49,15 +92,15 @@ public class Anonymous01Main {
 //	- 메소드 오버라이딩 
 
 abstract class MyAbstract{
-
-	// TODO
-
+	int n = 10;
+	int m = 2;
+	abstract int methodB(int a);
 } // end class
 
 class MyClass {
-
-	// TODO
-
+	int a = 10;
+	int b = 20;
+	int methodA(int c) {return a + b + c;}
 } // end class
 
 

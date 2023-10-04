@@ -9,6 +9,9 @@ public class Local02Main {
 		person.readAge(10);
 		person.readAge(47);
 
+		MyReadable r = person.createInstance(16);
+		r.readInfo();
+
 	} // end main()
 
 } // end class Local02Main

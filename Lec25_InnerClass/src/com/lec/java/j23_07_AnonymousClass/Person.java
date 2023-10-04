@@ -9,10 +9,23 @@ public class Person {
 	public Person(String name) {
 		this.name = name;
 	}
-	
+
+	public MyReadable createInstance(int age){
+
+		return new MyReadable() {
+			@Override
+			public void readInfo() {
+				System.out.println("이름: " + name);
+				System.out.println("나이: " + age);
+			}
+		};
+	}
 	
 } // class Person
 
+interface  MyReadable {
+	void readInfo();
+}
 
 
 

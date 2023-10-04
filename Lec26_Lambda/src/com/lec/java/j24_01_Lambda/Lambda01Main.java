@@ -19,15 +19,23 @@ public class Lambda01Main {
 		
 		System.out.println();
 		System.out.println("[1] 인터페이스를 구현하는 클래스");
-		// TODO
+		Addable myAdder = new AdderImple();
+		System.out.println(myAdder.add(1.11, 2.22));
 				
 		System.out.println();
 		System.out.println("[2] 익명 클래스 사용");
-		// TODO
+		Addable myAdder2 = new Addable() {
+			@Override
+			public double add(double x, double y) {
+				return x + y;
+			}
+		};
+		System.out.println(myAdder2.add(1.11, 2.22));
 		
 		System.out.println();
 		System.out.println("[3] 람다 표현식(lambda expression) 사용");
-		// TODO
+		Addable myAdder3 = (a, b) -> a + b;
+		System.out.println(myAdder3.add(1.11, 2.22));
 		
 		System.out.println("\n프로그램 종료");
 	} // end main()
@@ -35,10 +43,17 @@ public class Lambda01Main {
 } // end class
 
 //인터페이스 정의
-// TODO
+interface Addable {
+	double add(double x, double y);
+}
 
 //인터페이스를 구현하는 클래스를 정의
-// TODO
+class AdderImple implements Addable {
+	@Override
+	public double add(double x, double y) {
+		return x + y;
+	}
+}
 
 
 
