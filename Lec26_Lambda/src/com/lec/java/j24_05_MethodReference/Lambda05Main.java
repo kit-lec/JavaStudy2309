@@ -23,18 +23,38 @@ package com.lec.java.j24_05_MethodReference;
  */
 
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.*;
 
 
 public class Lambda05Main {
     public static void main(String[] args) {
 
+        {
+            List<String> list = Arrays.asList("이승호", "허지우", "권희수");
+
+            // 익명객체 사용
+            list.forEach(new Consumer<String>() {
+                @Override
+                public void accept(String s) {
+                    System.out.println(s);
+                }
+            });
+
+            // 람다 사용
+            list.forEach( x -> System.out.println(x));
+
+            // 메소드 레퍼런스
+            list.forEach(System.out::println);
+        }
+
         System.out.println("Static method reference");
         {
             Function<String, Integer> f = str -> Integer.parseInt(str);  // 메소드호출 1회로 끝나는 람다표현식
 
             // static 메소드 레퍼런스 사용
-            // TODO
+            f = Integer::parseInt;
 
             Integer result = f.apply("1");
             System.out.println(result);
@@ -44,7 +64,7 @@ public class Lambda05Main {
             Consumer<String> c = str -> System.out.println(str); // 메소드호출 1회로 끝나는 람다표현식
 
             // static 메소드 레퍼런스 사용
-            // TODO
+            c = System.out::println;
 
             c.accept("hello method reference");
         }
@@ -54,7 +74,9 @@ public class Lambda05Main {
             Function<String, Boolean> f = str -> str.isEmpty(); // 메소드호출 1회로 끝나는 람다표현식
 
             // 인스턴스 메소드 레퍼런스 사용
-            // TODO
+            f = String::isEmpty;
+                // isEmpty() 는 인스턴스메소드다.
+                // 그러나, 매개변수로 넘어오는 타입이 String 이라 해당 타입의 메소드가 호출된다.
 
             Boolean result = f.apply("hello");
             System.out.println(result);
@@ -64,7 +86,7 @@ public class Lambda05Main {
             Predicate<String> p = str -> str.isEmpty(); // 메소드호출 1회로 끝나는 람다표현식
 
             // 인스턴스 메소드 레퍼런스
-            // TODO
+            p = String::isEmpty;
 
             boolean result = p.test("hello");
             System.out.println(result);
@@ -85,7 +107,7 @@ public class Lambda05Main {
             Supplier<String> s = () -> "";
 
             // 생성자 메소드 레퍼런스 사용
-            // TODO
+            s = String::new;   // () -> new String();
 
             String result = s.get();
             System.out.println("결과 [" + result + "]");
@@ -98,8 +120,8 @@ public class Lambda05Main {
             p = s -> str.equals(s);  // 외부 캡쳐링 (람다 내부에서 외부 인스턴스 참조)
 
             // 외부인스턴스 str 을 사용한 메소드 레퍼런스
-            // TODO
-
+            p = str::equals;
+            //str = "hhh";
             boolean result = p.test("hello");
             System.out.println(result);
         }

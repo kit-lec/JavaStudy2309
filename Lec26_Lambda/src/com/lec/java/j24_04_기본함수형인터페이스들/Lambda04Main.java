@@ -38,62 +38,88 @@ package com.lec.java.j24_04_기본함수형인터페이스들;
  */
 
 
+import java.util.Comparator;
+import java.util.function.*;
+
 public class Lambda04Main {
     public static void main(String[] args) {
 
         // Runnable
         {
-            // TODO
+            Runnable r = () -> System.out.println("Hello runnable");
+            r.run();
         }
 
         //  Supplier<T>
         {
-            // TODO
+            Supplier<String> s = () -> "Hello Supplier";
+            System.out.println(s.get());
         }
 
         // Consumer<T>
         {
-            // TODO
+            Consumer<String> c = str -> System.out.println(str);
+            c.accept("Hello Consumer");
         }
 
         // Function<T, R>
         {
-            // TODO
+            Function<String, Integer> f = str -> Integer.parseInt(str);
+            System.out.println(f.apply("100") * 3);
         }
 
         //  Predicate<T>
         {
-            // TODO
+            Predicate<String> p = str -> str.isEmpty();
+            System.out.println(p.test("Hello"));
+            System.out.println(p.test(""));
         }
 
         // UnaryOperator<T>
         {
-            // TODO
+            UnaryOperator<String> u = str -> str + " operator";
+            String result = u.apply("hello unary");
+            System.out.println(result);
         }
 
         // BinaryOperator<T>
         {
-            // TODO
+            BinaryOperator<String> b = (str1, str2) -> str1 + " " + str2;
+            System.out.println(b.apply("hello", "binary"));
+        }
+
+        // BinaryOperator<T>
+        {
+            BinaryOperator<String> b = (str1, str2) -> str1 + " " + str2;
+            String result = b.apply("hello", "binary");
+            System.out.println(result);
         }
 
         // BiPredicate<T, U>
         {
-            // TODO
+            BiPredicate<String, Integer> bp = (str, num) -> str.equals(Integer.toString(num));
+            boolean result = bp.test("1", 1);
+            System.out.println(result);
         }
 
         //  BiConsumer<T, U>
         {
-            // TODO
+            BiConsumer<String, Integer> bc = (str, num) -> System.out.println(str + " :: " + num);
+            bc.accept("숫자", 5);
         }
 
         // BiFunction<T, U, R>
         {
-            // TODO
+            BiFunction<Integer, String, String> bf = (num, str) -> String.valueOf(num) + str;
+            String result = bf.apply(5, "678");
+            System.out.println(result);
         }
 
         // Comparator<T>
         {
-            // TODO
+            Comparator<String> c = (str1, str2) -> str1.compareTo(str2);
+            int result = c.compare("aaa", "bbb");
+            System.out.println(result);  // -1
         }
 
     } // end main

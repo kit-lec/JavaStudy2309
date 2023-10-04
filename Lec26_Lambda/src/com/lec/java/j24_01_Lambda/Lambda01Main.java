@@ -34,6 +34,10 @@ public class Lambda01Main {
 		
 		System.out.println();
 		System.out.println("[3] 람다 표현식(lambda expression) 사용");
+		// 람다 표현식:
+		// (매개변수 리스트) -> 리턴값
+		// (매개변수 리스트) -> {...}  수행코드
+
 		Addable myAdder3 = (a, b) -> a + b;
 		System.out.println(myAdder3.add(1.11, 2.22));
 		
@@ -42,9 +46,11 @@ public class Lambda01Main {
 	
 } // end class
 
-//인터페이스 정의
+//함수형 인터페이스 정의
+@FunctionalInterface
 interface Addable {
 	double add(double x, double y);
+	//double sub(double x, double y);
 }
 
 //인터페이스를 구현하는 클래스를 정의
