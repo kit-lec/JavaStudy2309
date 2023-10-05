@@ -33,7 +33,11 @@ public class File12Main {
 	public static void main(String[] args) {
 		System.out.println("FileReader / FileWriter");
 		
-		// TODO
+		FileWriter fw = null;
+		FileReader fr = null;
+
+		BufferedReader br = null;
+		BufferedWriter bw = null;
 
 		int charRead = 0;  // 읽은 문자 (한개)
 		int charsCopied = 0;  // 몇 문자 복사했는지
@@ -42,14 +46,45 @@ public class File12Main {
 		try {
 			System.out.println("FileReader/Writer 만 사용");
 
-			// TODO
+			fr = new FileReader(BIG_TEXT);
+			fw = new FileWriter("temp/big_eng_copy1.txt");
 
 			System.out.println("BufferedReader/Writer + 버퍼 사용");
 
-			// TODO
+			br = new BufferedReader(fr);  // 장착!
+			bw = new BufferedWriter(fw);  // 장착!
 
-		} finally{
-			// TODO
+			char[] buf = new char[1024];  // 버퍼 제공
+
+			int charsRead = 0;  // 버퍼에 읽어들인 문자의 개수
+			charsCopied = 0;
+
+			startTime = System.currentTimeMillis(); // 현재 시간 저장
+			while((charsRead = br.read(buf)) != -1){
+				bw.write(buf, 0, charsRead);
+				charsCopied += charsRead;
+			}
+			bw.flush();  // ★
+
+			endTime = System.currentTimeMillis(); // 끝난 시간 저장
+			elapsedTime = endTime - startTime; // 경과 시간
+
+			System.out.println("읽고 쓴 문자수: " + charsCopied);
+			System.out.println("경과 시간(ms): " + elapsedTime);
+
+
+		} catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally{
+
+			try {
+				if(br != null) br.close();
+				if(bw != null) bw.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 
 		}
 

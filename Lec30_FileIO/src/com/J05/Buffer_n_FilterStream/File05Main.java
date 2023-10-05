@@ -18,6 +18,8 @@ java.io.OutputStream
       |__ java.io.BufferedOutputStream
 */
 
+import java.io.*;
+
 public class File05Main {
 
 	public static void main(String[] args) {
@@ -29,9 +31,40 @@ public class File05Main {
 		// in.read(buff) --> bin.read(buff);
 		// out.write( , , ) --> bout.write( , , ); 사용
 		// finally 필요 없슴
-		
-		
-		// TODO
+
+
+		try(
+				InputStream in = new FileInputStream("temp/big_text.txt");
+				BufferedInputStream bin = new BufferedInputStream(in); // 장착!
+				OutputStream out = new FileOutputStream("temp/copy_big_text.txt");
+				BufferedOutputStream bout = new BufferedOutputStream(out);  // 장착
+		){
+			byte[] buff = new byte[1024];   // 버퍼 준비
+
+			int lengthRead = 0;  // 읽은 바이트 개수
+			int byteCopied = 0;
+
+			long startTime = System.currentTimeMillis();
+
+			while((lengthRead = bin.read(buff)) != -1){
+//				lengthRead = bin.read(buff);
+//				if(lengthRead == -1) break;
+
+				bout.write(buff, 0, lengthRead);  // 직전에 읽어들인 데이터만큼 write
+				byteCopied += lengthRead;
+			}
+			long endTime = System.currentTimeMillis();
+			long elapsedTime = endTime - startTime;
+
+			System.out.println("전체 복사한 바이트: " + byteCopied);
+			System.out.println("경과 시간: " + elapsedTime);
+
+
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		
 		System.out.println("\n프로그램 종료");
 

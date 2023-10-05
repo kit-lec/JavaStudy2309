@@ -45,7 +45,21 @@ public class File09Main {
 			Member m2 = new Member("guest", "guest");
 			Member m3 = new Member("admin", "admin123456");
 
-			// TODO
+			list.add(m1);
+			list.add(m2);
+			list.add(m3);
+
+			oout.writeObject(list);   // List<> 한번에 저장
+
+			list = null;
+
+			list = (ArrayList<Member>)oin.readObject();
+
+			list.forEach(Member::displayInfo);
+			list.forEach(m -> m.displayInfo());
+			for(var m : list){
+				m.displayInfo();
+			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -53,9 +67,11 @@ public class File09Main {
 			System.out.println("파일 끝까지 읽었습니다.");
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
+		} catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
-		System.out.println("\n프로그램 종료");
+        System.out.println("\n프로그램 종료");
 		
 	} // end main()
 

@@ -34,10 +34,7 @@ package com.J13.PrintWriter_인코딩;
  *   
 */
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 public class File13Main {
 	
@@ -53,20 +50,66 @@ public class File13Main {
 		BufferedReader br = null;
 		BufferedWriter bw = null;
 
-		// TODO
+		PrintWriter out = null;
 
 		try {
-			// TODO
+			out = new PrintWriter(new BufferedWriter(new FileWriter(FILE1)));
+			test_write(out);
 
-		} finally {
-			// TODO
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE1)));
+			test_read(br);
+
+			System.out.println("현재 OS인코딩 " + System.getProperty("file.encoding"));
+
+			//---------------------------------------
+			out.close();
+			br.close();
+			//---------------------------------------
+
+			// euc-kr 로 인코딩 하여 저장
+			out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(FILE2), "euc-kr")));
+			test_write(out);
+			System.out.println();
+
+			// euc-kr 로 디코딩하여 읽기
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE2), "euc-kr"));
+			test_read(br);
+
+		} catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+			out.close();
+
+			try {
+				if(br != null) br.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 
 		}
 		
 		System.out.println("\n프로그램 종료");
 		
 	} // end main()
-	
+
+	private static void test_read(BufferedReader br) throws IOException {
+
+		String line;
+		StringBuffer sb = new StringBuffer();
+		while((line = br.readLine()) != null){
+			sb.append(line + "\n");
+		}
+		System.out.println(sb);
+	}
+
+	private static void test_write(PrintWriter out) {
+		out.println("안녕하세요 Java 한글이 잘 보이나요?");
+		out.print((2000 + 20) + " " + 3.14);
+		out.println();
+		out.printf("%d-%d-%d\n", 2020, 3, 2);
+		out.flush();   // ★
+	}
+
 	// TODO
 	
 } // end class

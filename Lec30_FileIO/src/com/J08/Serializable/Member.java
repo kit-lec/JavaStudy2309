@@ -1,11 +1,15 @@
 package com.J08.Serializable;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
+
+	private static final long serialVersionUID = 111L;
 
 	private String id;
 	private String pw;
-	private int num;
-	private boolean isExist;
+	transient private int num;
+	transient private boolean isExist;
 	
 	// transient로 선언된 변수는 serialization(직렬화) 대상에서 제외됨.
 	// (파일에 write되지 않는다)
