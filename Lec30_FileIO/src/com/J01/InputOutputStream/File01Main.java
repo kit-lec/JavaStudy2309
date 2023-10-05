@@ -24,20 +24,23 @@ java.io 패키지의 주요 클래스
 4) java.io.Console : 콘솔로부터 문자을 입출력하기 위한 클래스
 */
 
+import java.util.Scanner;
+
 public class File01Main {
 
 	public static void main(String[] args) {
 		System.out.println("IO(Input/Output)");
 		
 		// InputStream 객체 in을 가지고 읽어들일 수 있는 스캐너 객체 생성
-		// TODO
+		Scanner sc = new Scanner(System.in);
+		sc.close();
 		
 		// 외부장치(콘솔, 키보드)로부터 데이터를 읽음
 		// TODO
 		
 		// OutpustStream 객체인 out이 가지고 있는 println() 메소드를 사용
 		// 외부장치(콘솔, 모니터)에 데이터를 씀
-		// TODO
+		System.out.println("Hello");
 		
 		System.out.println("\n프로그램 종료");
 		

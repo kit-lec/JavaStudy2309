@@ -32,9 +32,41 @@ public class File03Main {
 		// InputStream, OutputStream 둘다 Closeable 을 상속(implements) 한다
 		
 	
-		// TODO
-		
-		System.out.println("\n프로그램 종료");
+		try(
+				InputStream in = new FileInputStream("temp/big_text.txt");
+				OutputStream out = new FileOutputStream("temp/copy_big_text.txt");
+				){
+			byte[] buff = new byte[1024];   // 버퍼 준비
+
+			int lengthRead = 0;  // 읽은 바이트 개수
+			int byteCopied = 0;
+
+			long startTime = System.currentTimeMillis();
+
+			while(true){
+				// 매개변수로 주어진 byte[] 배열의 길이 만큼 read한다.
+				// 실제 읽어 들인 데이터는 매개변수 byte[] 에 담김.
+				// 읽어들인 바이트 개수 리턴,  읽어들인게 없으면 -1 리턴.
+				lengthRead = in.read(buff);
+				if(lengthRead == -1) break;
+
+				out.write(buff, 0, lengthRead);  // 직전에 읽어들인 데이터만큼 write
+				byteCopied += lengthRead;
+			}
+			long endTime = System.currentTimeMillis();
+			long elapsedTime = endTime - startTime;
+
+			System.out.println("전체 복사한 바이트: " + byteCopied);
+			System.out.println("경과 시간: " + elapsedTime);
+
+
+		} catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("\n프로그램 종료");
 		
 	} // end main()
 

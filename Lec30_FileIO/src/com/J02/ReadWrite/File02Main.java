@@ -12,13 +12,65 @@ package com.J02.ReadWrite;
   |__ java.io.FileOutputStream: 파일로 데이터를 쓰는 통로
 */
 
+import java.io.*;
+
 public class File02Main {
 
 	public static void main(String[] args) {
 		System.out.println("File IO");
 
-		// TODO
-		
+		InputStream in = null;
+		OutputStream out = null;
+
+		try {
+			in = new FileInputStream("temp/big_text.txt");
+			// FileOutputStream 인스턴스 생성
+			// 해당 파일이 없으면, 새로 생성.
+			//   ..      있었으면, 지우고 새로 생성.
+			out = new FileOutputStream("temp/copy_big_text.txt");
+
+			int dataRead;
+			int bytesCopied = 0;
+
+			long startTime = System.currentTimeMillis();  // 현재시간 저장
+			
+			while(true){
+				// 데이터 읽기: InputStream에 있는 read() 메소드 사용
+				// read()는 InputStream 으로부터
+				// 1byte 씩 읽어서 int(4byte) 에 담아 리턴한다
+				// [ ... ][ ... ][ ... ][ 1byte ]
+				dataRead = in.read();
+				if(dataRead == -1){ // 더이상 읽을 것이 없으면 read() 는 -1 을 리턴한다.
+					break;
+				}
+				// 데이터 쓰기: OutputStream에 있는 write() 메소드 사용
+				// write() 는
+				// int(4byte)에 1byte씩 담아 OutputStream에 쓴다
+				// [ ... ][ ... ][ ... ][ 1byte ]
+				out.write(dataRead);
+				bytesCopied++;
+			}
+			long endTime = System.currentTimeMillis();  
+			long elapsedTime = endTime - startTime;  // 경과시간
+
+			System.out.println("읽고 쓴 바이트: " + bytesCopied);
+			System.out.println("경과시간 (ms): " + elapsedTime);
+
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+			// 리소스 해제
+			try {
+				if(out != null) out.close();
+				if(in != null) in.close();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+
 		System.out.println("\n프로그램 종료");
 		
 	} // end main()
