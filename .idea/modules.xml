@@ -28,6 +28,8 @@
       <module fileurl="file://$PROJECT_DIR$/Lec24_Collection/Lec24_Collection.iml" filepath="$PROJECT_DIR$/Lec24_Collection/Lec24_Collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec25_InnerClass/Lec25_InnerClass.iml" filepath="$PROJECT_DIR$/Lec25_InnerClass/Lec25_InnerClass.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec26_Lambda/Lec26_Lambda.iml" filepath="$PROJECT_DIR$/Lec26_Lambda/Lec26_Lambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec27_Optional/Lec27_Optional.iml" filepath="$PROJECT_DIR$/Lec27_Optional/Lec27_Optional.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lec28_Stream/Lec28_Stream.iml" filepath="$PROJECT_DIR$/Lec28_Stream/Lec28_Stream.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lec30_FileIO/Lec30_FileIO.iml" filepath="$PROJECT_DIR$/Lec30_FileIO/Lec30_FileIO.iml" />
     </modules>
   </component>
