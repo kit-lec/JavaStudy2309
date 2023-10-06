@@ -13,12 +13,13 @@ public class Optional01Main {
 		System.out.println("null check");
 
 		User user1 = new User();
-		// TODO
+		userInfo1(user1);
 
 		User[] arr = new User[3];
 		User user2 = arr[0];
 
-		// TODO
+		//userInfo2(user2);   // NPE
+		userInfo3(user2);
 
 		System.out.println("\n프로그램 종료");
 	} // end main()
@@ -33,13 +34,23 @@ public class Optional01Main {
 
 	public static void userInfo3(User user) {
 		// 자바는 NPE 방어하기 위한 방어코드가 필수다!
-		// TODO
+		if(user != null){
+			System.out.println(user.getAddress());
+		}
 	}
 
 	public static void userStreet(User user) {
 		//  null 체크 때문에 지저분해진 코드
 
-		// TODO
+		if(user != null){
+			Address address = user.getAddress();
+			if(address != null){
+				String street = address.getStreet();
+				if(street != null){
+					System.out.println(street.toUpperCase());
+				}
+			}
+		}
 
 		System.out.println("street 없슴");
 	}

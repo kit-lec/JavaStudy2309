@@ -57,13 +57,31 @@ public class Stream01Main {
 		Map<String, Integer> person = Map.of("zayson", 28, "chaeyoung", 26);
 
 		// 배열의 스트림 생성
-		// TODO
+		IntStream stream1 = Arrays.stream(intArr);
+		DoubleStream stream2 = Arrays.stream(doubleArr);
 
 		// 컬렉션 의 스트림 생성
-		// TODO
+		Stream<String> stringStream = stringList.stream();
+		Stream<Integer> intStream = intList.stream();
+
+		System.out.println(stream1);
+		System.out.println(stringStream);
+
+		Stream<Map.Entry<String, Integer>> entryStream = person.entrySet().stream();
+		var entryStream2 = person.entrySet().stream();
+
+		Stream<Integer> intStream2 = integerSet.stream();
+
 
 		// Stream.of() 팩토리 메서드로 스트림 생성
-		// TODO
+		Stream<Integer> intStream3 = Stream.of(20, 30);  // boxing 발생!
+		IntStream intStream4 = IntStream.of(20, 30);   // boxing 없슴
+
+		Stream<Customer> customerStream = Stream.of(
+				new Customer("zayson", 28)
+				, new Customer("chaeyoung", 26)
+		);
+
 
 		System.out.println("\n프로그램 종료");
 	} // end main()

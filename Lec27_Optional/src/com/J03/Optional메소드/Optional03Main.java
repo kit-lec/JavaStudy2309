@@ -10,7 +10,8 @@ package com.J03.Optional메소드;
  * 
  * -Optional<T> filter(Predicate<T>)
  * 	  내부객체가 해당 조건을 만족하는지 확인.  (Predicate 메소드는 boolean 을 리턴)
- *    Optional<U> 리턴
+ *      true 판정되면 -> Optional<U> 리턴
+ *      false 판정되면 -> Optional.Emtpy 리턴
  * 
  * -Optional<U> map(Function<T, U>)
  * 	  스트림과 같다. 내부 객체를 변환하는 용도로 사용한다.
@@ -41,13 +42,53 @@ public class Optional03Main {
 
 		System.out.println("Optional 의 주요 메소드");
 
-		Address addr1 = new Address("역삼로");
+		Address addr1 = new Address("New York");
 		Address addr2 = null;
 		Optional<Address> optAddr1, optAddr2;
-		
-		// TODO
+
+		optAddr1 = Optional.of(addr1);
+		//optAddr2 = Optional.of(addr2);  // NPE!
+		optAddr2 = Optional.ofNullable(addr2);
+
+		System.out.println(optAddr1.isEmpty());  // false
+		System.out.println(optAddr1.isPresent()); // true
+
+		System.out.println(optAddr2.isEmpty()); // true
+		System.out.println(optAddr2.isPresent()); // false
+
+		// 존재하는 경우에만 특정 코드 수행하기
+		optAddr1.ifPresent(s -> System.out.println("주소1: " + s.getStreet()));
+		optAddr2.ifPresent(s -> System.out.println("주소2: " + s.getStreet()));
+
+		System.out.println(optAddr1.get());
+		// System.out.println(optAddr2.get());
+
+		System.out.println(optAddr1.orElse(new Address("UNKNOWN 1")));
+		System.out.println(optAddr2.orElse(new Address("UNKNOWN 2")));
+		System.out.println(optAddr2.orElseGet(() -> new Address("몰라요")));
+
+//		optAddr2.orElseThrow();  // NoSuchElementException
+//		optAddr2.orElseThrow(() -> new NullPointerException("죽겠네"));
+//		optAddr2.orElseThrow(NullPointerException::new);
+
+		System.out.println(optAddr1.filter(s -> s.getStreet().equals("New York")));   // Optional[Address]
+		System.out.println(optAddr1.filter(s -> s.getStreet().equals("강남대로")));   // Optional.Empty
+		System.out.println(optAddr2.filter(s -> s.getStreet().equals("강남대로")));   // Optional.Empty
+
+		System.out.println(optAddr1.map(s -> s.getStreet()));  // Optional[String]
+		System.out.println(optAddr2.map(s -> s.getStreet()));  // Optional.Empty
 
 		System.out.println("\n프로그램 종료");
 	} // end main
 
 } // end class
+
+
+
+
+
+
+
+
+
+

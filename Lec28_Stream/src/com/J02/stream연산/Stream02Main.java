@@ -41,6 +41,7 @@ public class Stream02Main {
 		System.out.println("Stream 연산");
 
 		List<String> stringList = Arrays.asList("John", "Susan", "Tom", "Michael");
+		int[] intArr = {10, 20, 30, 40, 50};
 		Customer[] arrCustomer = {
 				new Customer("John", 32),
 				new Customer("Susan", 22),
@@ -55,7 +56,13 @@ public class Stream02Main {
 		// 주어진 Stream 을 순환하며 연산 수행
 		System.out.println("-".repeat(30) +"\n▶ forEach(Consumer<T>)");
 		{
-			// TODO
+			Stream<Customer> stream1 = customerList.stream();
+			stream1.forEach(s -> System.out.println(s));
+			// ★한번 최종연산한 스트림은 다시 사용 불가 --> IllegalStateException
+			// stream1.forEach(s -> System.out.println(s));
+
+			stream1 = customerList.stream();
+			stream1.forEach(s -> System.out.println(s.getAge()));
 		}
 
 
@@ -65,9 +72,23 @@ public class Stream02Main {
 		//   입력 ->  출력
 		//    n개 ->  <=n개
 
-		// System.out.println("-".repeat(30) +"\n▶ filter(Predicate<T>)");
+		 System.out.println("-".repeat(30) +"\n▶ filter(Predicate<T>)");
 		{
-			// TODO
+			System.out.println(stringList);
+			// 문자열의 길이 5개 이상인 요소만 출력하기
+
+			stringList.stream()     // Stream<String>
+					.filter(s -> s.length() >= 5)  // Stream<String>  중간연산
+					.forEach(System.out::println);  // 최종연산
+
+			System.out.println(customerList);
+			// 나이가 40살 이하인 사람만 출력
+			customerList.stream()
+					.filter(c -> c.getAge() <= 40)
+					.forEach(System.out::println);
+			System.out.println();
+
+
 		}
 
 
@@ -77,9 +98,18 @@ public class Stream02Main {
 		// 입력  =>  출력
 		//  n개  =>  n개
 
-		// System.out.println("-".repeat(30) +"\n▶ map(Function<T, U>)");
+		 System.out.println("-".repeat(30) +"\n▶ map(Function<T, U>)");
 		{
-			// TODO
+			// 고객 이름만 출력하기
+			Arrays.stream(arrCustomer)   // Stream<Customer>  4개
+					.map(Customer::getName)  // 중간연산 -> Stream<String> 4개
+					.forEach(System.out::println);
+					;
+
+			Arrays.stream(intArr)
+					.map(n -> n - 4)
+					.map(n -> n * 2)
+					.forEach(System.out::println);
 		}
 
 
@@ -92,7 +122,32 @@ public class Stream02Main {
 
 		// System.out.println("-".repeat(30) +"\n▶ sorted(), sorted(Comparator<T>)");
 		{
-			// TODO
+			System.out.println(stringList);
+
+			stringList.stream()
+					.sorted()
+					.forEach(System.out::println);
+
+			// Comparable<> 이 구현되지 않은 객체로 sorted() 하면
+			// ClassCastException 발생!
+//			customerList.stream()
+//					.sorted()
+//					.forEach(System.out::println);
+
+			System.out.println();
+			stringList.stream()
+					.sorted((o1, o2) -> o1.length() - o2.length())
+					.forEach(System.out::println);
+
+			System.out.println();
+			stringList.stream()
+					.sorted((o1, o2) -> o2.length() - o1.length())
+					.forEach(System.out::println);
+
+			System.out.println();
+			customerList.stream()
+					.sorted((o1, o2) -> o1.getName().compareTo(o2.getName()))
+					.forEach(System.out::println);
 		}
 
 		//-------------------------------------------------------------
@@ -102,7 +157,7 @@ public class Stream02Main {
 		// object type 의 경우 .equals() 로 '같은지 여부' 판단
 
 		// System.out.println("-".repeat(30) +"\n▶ distinct()");
-		int[] intArr = {9, 1, 1, 0, 2, 2, 2, 5, 9, 2, 0};
+		intArr = new int[]{9, 1, 1, 0, 2, 2, 2, 5, 9, 2, 0};
 		{
 			// TODO
 		}
