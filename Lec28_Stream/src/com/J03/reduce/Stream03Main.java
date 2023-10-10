@@ -22,7 +22,7 @@ import java.util.function.BinaryOperator;
  *  reduce(BinaryOperator<T>)
  * 	reduce(Identity, BinaryOperator<T>)
  * 	  매개변수
- * 	     Identidy: 초깃값
+ * 	     Identity: 초깃값
  * 	     BinaryOperator: reduce 연산로직
  *
  *  기존의 주어진 연산 (count, sum 등..) 이 아닌 연산을 Stream 에 수행할때 필요
@@ -42,21 +42,58 @@ public class Stream03Main {
 			int [] arr = {1, 2, 3, 4, 5};
 
 			// 초깃값을 안 준 경우
-			// TODO
+			var result1 = Arrays.stream(arr)   // IntStream
+					//.reduce((a, b) -> a + b)   // 초깃값이 없는 경우 OptionalInt 리턴
+					.reduce((a, b) -> {   // 중간연산과정 출력
+						System.out.println("a:" + a + ", b:" + b);
+						return a + b;
+					})
+					.orElse(0)
+					;
+			System.out.println(result1);
+
+
+			// 1, 2, 3, 4, 5
+			// ↘ ↓
+			//   3, 3, 4, 5
+			//    ↘ ↓
+			//      6, 4, 5
+			//       ↘ ↓
+			//        10, 5
+			//         ↘ ↓
+			//           15  <-- 결국 최종값
 
 			// 초깃값을 준 경우
-			// TODO
+			var result2 = Arrays.stream(arr)
+					.reduce(100, (a, b) -> a + b)   // int
+					;
+			System.out.println(result2);
+
+			// 100, 1, 2, 3, 4, 5
+			//    101
+			//      103
+			//        106
+			//           110
+			//              115<-- 결국 최종값은 한개다
 
 		}
-
 
 		System.out.println();
 		{
 			// 문자열에서 길이가 가장 긴 문자열을 뽑아내기
 			String [] greetings = {"안녕하세요~~~", "Hello", "Good morning", "반갑습니다"};
 			String result;
-			// TODO
+			result = Arrays.stream(greetings)
+					.reduce("", (s1, s2) -> {
+						return (s1.length() >= s2.length()) ? s1 : s2;
+					});
+			System.out.println(result);
 
+			result = Arrays.stream(greetings)
+					.reduce(new CompareString())  // Optional<String> 리턴
+					.get()
+					;
+			System.out.println(result);
 		}
 
 
@@ -69,10 +106,18 @@ public class Stream03Main {
 			);
 
 			// 나이가 28이하인 사람들의 나이의 합
-			// TODO
+			int result1 = personList.stream()
+					.filter(c -> c.getAge() <= 28)
+					.mapToInt(x -> x.getAge())
+					.reduce((a1, a2) -> a1 + a2)
+					.orElse(0);
+			System.out.println(result1);
 
 			// 이름들만 묶어서 하나의 문자열 만들기
-			// TODO
+			String result2 = personList.stream()
+					.map(x -> x.getName())
+					.reduce("", (s1, s2) -> s1 + s2);
+			System.out.println(result2);
 		}
 
 		System.out.println("\n프로그램 종료");
@@ -82,7 +127,13 @@ public class Stream03Main {
 
 
 // 직접 구현도 가능
-// TODO
+class CompareString implements BinaryOperator<String>{
+
+	@Override
+	public String apply(String s1, String s2) {
+		return (s1.length() >= s2.length()) ? s1 : s2;
+	}
+}
 
 
 
